@@ -1,0 +1,16 @@
+<ul>
+    <li><app-visual-egg (mouseenter)="showMenu()"></app-visual-egg></li>
+    <li class="menu-item" [ngClass]="menuItem.menuItemState" *ngFor="let menuItem of menuItems">
+        <!-- if item has an href, use href -->
+        <a 
+            *ngIf="menuItem.href; else aRouterLink" 
+            [href]="menuItem.href | safeUrl" download>{{menuItem.text}}</a>
+        <!-- otherwise, use routerLink -->
+        <ng-template #aRouterLink>
+            <a
+            [routerLink]="menuItem.routerLink" 
+            routerLinkActive="active" 
+            [routerLinkActiveOptions]="{exact:true}">{{menuItem.text}}</a>
+        </ng-template>
+    </li>
+</ul>

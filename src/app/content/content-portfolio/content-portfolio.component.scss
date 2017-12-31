@@ -1,0 +1,69 @@
+.project {
+	position: relative;
+}
+
+.arrow {
+	color: white;
+	font-size: 3rem;
+	line-height: 3rem;
+	z-index: 3;
+	position:absolute;
+	top:0;
+//	transform: translateY(12.5vw);
+	padding: 0 5px;
+	opacity: 0.6;
+	transition: opacity 200ms ease-in-out;
+	cursor: pointer;
+}
+
+.arrow:hover {
+	opacity: 1;
+}
+
+.prev {
+	border-top-right-radius: 0.5rem;
+	border-bottom-right-radius: 0.5rem;
+	left: 0;
+}
+
+.next {
+	border-top-left-radius: 0.5rem;
+	border-bottom-left-radius: 0.5rem;
+	right: 0;
+}
+
+// .project.gliding > .arrow {
+// 	background-color: #0b2813;
+// }
+
+// .project.pizzka > .arrow {
+// 	background-color: #f00d0d;
+// }
+
+.images {
+    text-align: left;
+	display: flex;
+	z-index: 0;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+figure {
+	margin: 0;
+	width: 640px;
+	text-align: center;
+}
+figcaption {
+	margin-bottom: 30px;
+	font-size: 0.9em;
+}
+img {
+    margin: 0 0 3px 0;
+	height: 30vw;
+	max-height: 300px;
+}
+
+img.pizzka {
+    border: 1px solid gray;
+}
+

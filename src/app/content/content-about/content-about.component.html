@@ -1,0 +1,14 @@
+<div class="content">
+  <h1 (click)="flags.fna=true">fna</h1>
+  <p *ngIf="flags.fna" [@fadeIn]><b>frequently not asked</b></p>
+  <h3 (click)="flags.word=true">word</h3>
+  <p *ngIf="flags.word" [@fadeIn]>pamplemousse</p>
+  <h3 (click)="flags.hour=true">hour</h3>
+  <p *ngIf="flags.hour" [@fadeIn]>4:30 am</p>
+  <h3 (click)="flags.animation=true">animation</h3>
+  <p *ngIf="flags.animation" [@fadeIn]><a href="https://www.rottentomatoes.com/m/song_of_the_sea_2014/" target="_blank">song of the sea</a></p>
+  <h3 (click)="flags.laugh=true">laugh</h3>
+  <p *ngIf="flags.laugh" [@fadeIn]>thumb wresting with grandfather</p>
+  <h3 (click)="flags.faq=true">faq</h3>
+  <p *ngIf="flags.faq" [@fadeIn]>funny australian quokka</p>
+</div>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12.435417 10.054166" height="38" width="47" (mouseenter)="crackEgg()">
+    <g #egg [ngStyle]="{'opacity':cracked ? 0 : 1}">
+        <path #eggColor [attr.d]="visualEggService.egg.eggColor.d" [ngStyle]="visualEggService.egg.eggColor.attr"/>
+        <path #eggLine [attr.d]="visualEggService.egg.eggLine.d"/>
+        <path #eggRoundness [attr.d]="visualEggService.egg.eggRoundness.d"/>
+    </g>
+    <g #menu [ngStyle]="{'opacity':cracked ? 0 : 1}">
+        <path #menuTop [attr.d]="visualEggService.egg.menu.menuTop.d"/>
+        <path #menuMiddle [attr.d]="visualEggService.egg.menu.menuMiddle.d[currentVisualIndex]"/>
+        <path #menuBottom [attr.d]="visualEggService.egg.menu.menuBottom.d"/>
+    </g>
+
+    <g #bottomHalf [ngStyle]="{'opacity':cracked ? 1 : 0}">
+        <path #bottomHalfColor [attr.d]="visualEggService.bottomHalf.bottomHalfColor.d" [ngStyle]="visualEggService.bottomHalf.bottomHalfColor.attr"/>
+        <path #bottomHalfLine [attr.d]="visualEggService.bottomHalf.bottomHalfLine.d"/>
+        <path #bottomHalfRoundness [attr.d]="visualEggService.bottomHalf.bottomHalfRoundness.d"/>
+        <path #bottomHalfCrack [attr.d]="visualEggService.bottomHalf.bottomHalfCrack.d"/>
+    </g>
+    <g #topHalf [ngStyle]="{'opacity':cracked ? 1 : 0}">
+        <path #topHalfColor [attr.d]="visualEggService.topHalf.topHalfColor.d" [ngStyle]="visualEggService.topHalf.topHalfColor.attr"/>
+        <path #topHalfCrack [attr.d]="visualEggService.topHalf.topHalfCrack.d"/>
+        <path #topHalfLine [attr.d]="visualEggService.topHalf.topHalfLine.d"/>
+    </g>
+</svg>

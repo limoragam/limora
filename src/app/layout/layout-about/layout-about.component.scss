@@ -1,0 +1,45 @@
+.layout-wrapper {
+    max-width: 630px;
+    margin: 0 auto;
+}
+
+// .layout-wrapper > * {
+//     border: 1px solid #f08c00;
+// }
+
+nav {
+    margin: 0;
+    padding: 0;
+}
+
+.layout-content {
+    grid-area: content;
+}
+.layout-separator {
+    grid-area: separator;
+}
+.layout-nav {
+    grid-area: nav;
+}
+.layout-visual {
+    grid-area: visual;
+}
+.layout-wrapper {
+    display: grid;
+    grid-row-gap: 5px;
+    grid-column-gap: 20px;
+    grid-template-areas: 
+        "nav"
+        "separator"
+        "content"
+        "visual";
+}
+@media (min-width: 700px) {
+    .layout-wrapper {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas: 
+            "nav       nav"
+            "separator separator" 
+            "visual     content";
+    }
+}
