@@ -26,8 +26,10 @@ ul {
     }
 
     .menu-item {
-        opacity: 0;
-        transform: translateX(-40px);
-        font-size: 0;
+        z-index: -1;
+    }
+
+    .egg {
+        z-index: 1;
     }
 }

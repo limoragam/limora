@@ -3,13 +3,12 @@
 }
 
 .arrow {
-	color: white;
+	color: rgb(99, 91, 91);
 	font-size: 3rem;
 	line-height: 3rem;
 	z-index: 3;
 	position:absolute;
 	top:0;
-//	transform: translateY(12.5vw);
 	padding: 0 5px;
 	opacity: 0.6;
 	transition: opacity 200ms ease-in-out;

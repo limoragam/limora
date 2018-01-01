@@ -1,26 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { TimelineLite } from 'gsap';
+import { trigger, transition, query, style, stagger, animate, state } from '@angular/animations';
+import { NavigationService } from './navigation.service';
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss'],
 })
-export class NavigationComponent implements OnInit {
-  menuItems = [
-    {'menuItemState':'hidden', 'routerLink':'/', 'text':'The Nest'},
-    {'menuItemState':'hidden', 'routerLink':'/contact', 'text':'Contact'},
-    {'menuItemState':'hidden', 'routerLink':'/portfolio', 'text':'Portfolio'},
-    {'menuItemState':'hidden', 'routerLink':'/feet', 'text':'See My Feet'},
-    {'menuItemState':'hidden', 'routerLink':'/about', 'text':'About'},
-    {'menuItemState':'hidden', 'href':'/assets/CV.pdf', 'text':'CV'},
-  ];
+export class NavigationComponent {
 
-  constructor(private activatedRoute:ActivatedRoute) {}
+  constructor(private activatedRoute:ActivatedRoute, public navigationService:NavigationService) {}
 
-  ngOnInit() {
-    this.setMenuItemsPotentialVisiblity();
+  ngAfterViewInit() {
+    this.navigationService.initNavigation();
   }
 
   setMenuItemsPotentialVisiblity() {
@@ -28,22 +21,14 @@ export class NavigationComponent implements OnInit {
     if(this.activatedRoute.snapshot.url.length > 0) {
       currentPath = currentPath + this.activatedRoute.snapshot.url[0].path;
     }
-    this.menuItems.forEach((menuItem, i) => {
+    this.navigationService.menuItems.forEach((menuItem, i) => {
       if("routerLink" in menuItem) {
         if(menuItem["routerLink"] !== currentPath) {
-          menuItem.menuItemState = 'visible';
+          menuItem.display = 'visible';
         }
       } else {
-        menuItem.menuItemState = 'visible';
+        menuItem.display = 'visible';
       }
     });
-  }
-
-  showMenu() {
-    new TimelineLite().staggerTo(".menu-item.visible", 0.6, {
-      transform:'translateX(0)', 
-      opacity:1, 
-      'font-size':'1rem'
-    }, 0.1);
   }
 }

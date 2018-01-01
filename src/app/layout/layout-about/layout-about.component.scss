@@ -14,15 +14,13 @@ nav {
 
 .layout-content {
     grid-area: content;
+    text-align: center;
 }
 .layout-separator {
     grid-area: separator;
 }
 .layout-nav {
     grid-area: nav;
-}
-.layout-visual {
-    grid-area: visual;
 }
 .layout-wrapper {
     display: grid;
@@ -31,15 +29,14 @@ nav {
     grid-template-areas: 
         "nav"
         "separator"
-        "content"
-        "visual";
+        "content";
 }
 @media (min-width: 700px) {
     .layout-wrapper {
         grid-template-columns: 1fr 1fr;
         grid-template-areas: 
-            "nav       nav"
-            "separator separator" 
-            "visual     content";
+            "nav"
+            "separator" 
+            "content";
     }
 }
