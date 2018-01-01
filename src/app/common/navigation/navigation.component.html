@@ -1,6 +1,12 @@
 <ul>
-    <li><app-visual-egg (mouseenter)="showMenu()"></app-visual-egg></li>
-    <li class="menu-item" [ngClass]="menuItem.menuItemState" *ngFor="let menuItem of menuItems">
+    <li class="egg" (mouseenter)="navigationService.onHover()" (click)="navigationService.toggleMenu()">
+        <app-visual-egg></app-visual-egg>
+    </li>
+    <li class="menu-item" 
+        *ngFor="let menuItem of navigationService.menuItems"    
+        [ngClass]="menuItem.display" 
+        [ngStyle]="menuItem.style"
+        >
         <!-- if item has an href, use href -->
         <a 
             *ngIf="menuItem.href; else aRouterLink" 
