@@ -3,7 +3,7 @@ export class NavigationService {
         {
             'display': 'hidden', 'routerLink': '/', 'text': 'the nest',
             'style': {
-                'opacity': 0.3,
+                'opacity': 0,
                 'pointer-events': 'auto',
                 'transform': 'translateX(0)',
                 'transition': 'all 400ms ease-in-out',
@@ -12,7 +12,7 @@ export class NavigationService {
         {
             'display': 'hidden', 'routerLink': '/contact', 'text': 'contact',
             'style': {
-                'opacity': 0.3,
+                'opacity': 0,
                 'pointer-events': 'auto',
                 'transform': 'translateX(0)',
                 'transition': 'all 400ms ease-in-out 100ms',
@@ -21,7 +21,7 @@ export class NavigationService {
         {
             'display': 'hidden', 'routerLink': '/portfolio', 'text': 'portfolio',
             'style': {
-                'opacity': 0.3,
+                'opacity': 0,
                 'pointer-events': 'auto',
                 'transform': 'translateX(0)',
                 'transition': 'all 400ms ease-in-out 200ms'
@@ -30,7 +30,7 @@ export class NavigationService {
         {
             'display': 'hidden', 'routerLink': '/feet', 'text': 'see my feet?',
             'style': {
-                'opacity': 0.3,
+                'opacity': 0,
                 'pointer-events': 'auto',
                 'transform': 'translateX(0)',
                 'transition': 'all 400ms ease-in-out 300ms'
@@ -39,7 +39,7 @@ export class NavigationService {
         {
             'display': 'hidden', 'routerLink': '/about', 'text': 'about',
             'style': {
-                'opacity': 0.3,
+                'opacity': 0,
                 'pointer-events': 'auto',
                 'transform': 'translateX(0)',
                 'transition': 'all 400ms ease-in-out 400ms'
@@ -48,7 +48,7 @@ export class NavigationService {
         {
             'display': 'hidden', 'href': '/assets/CV.pdf', 'text': 'cv',
             'style': {
-                'opacity': 0.3,
+                'opacity': 0,
                 'pointer-events': 'auto',
                 'transform': 'translateX(0)',
                 'transition': 'all 400ms ease-in-out 500ms'

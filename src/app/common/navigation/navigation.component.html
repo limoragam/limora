@@ -10,7 +10,7 @@
         <!-- if item has an href, use href -->
         <a 
             *ngIf="menuItem.href; else aRouterLink" 
-            [href]="menuItem.href | safeUrl" download>{{menuItem.text}}</a>
+            [href]="menuItem.href | safeUrl" download target="_blank">{{menuItem.text}}</a>
         <!-- otherwise, use routerLink -->
         <ng-template #aRouterLink>
             <a
