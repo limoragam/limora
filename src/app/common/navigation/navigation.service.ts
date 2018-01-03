@@ -46,7 +46,7 @@ export class NavigationService {
             }
         },
         {
-            'display': 'hidden', 'href': '/assets/CV.pdf', 'text': 'cv',
+            'display': 'hidden', 'href': 'https://docs.google.com/document/d/1DdD9o8-wtia5Tg2jGmxhxWYXDEjXFfdjW-khLE0bNO4/edit?usp=sharing', 'text': 'cv',
             'style': {
                 'opacity': 0,
                 'pointer-events': 'auto',
