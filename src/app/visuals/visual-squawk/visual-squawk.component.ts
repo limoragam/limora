@@ -1,15 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { LayoutService } from './../../layout/layout.service';
 
 @Component({
   selector: 'app-visual-squawk',
   templateUrl: './visual-squawk.component.html',
   styleUrls: ['./visual-squawk.component.scss']
 })
-export class VisualSquawkComponent implements OnInit {
+export class VisualSquawkComponent {
+  narrowVisualWidth = this.layoutService.getMaxWidth();
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  constructor(public layoutService:LayoutService) { }
 }

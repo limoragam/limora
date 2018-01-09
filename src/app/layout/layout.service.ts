@@ -1,5 +1,12 @@
 export class LayoutService {
-    getMedia() {
-        return (window.matchMedia("(max-width: 700px)").matches) ? 'phone' : 'desktop';
+    getMedia():string {
+        return (window.matchMedia("(max-width: 680px)").matches) ? 'narrow' : 'wide';
+    }
+
+    getMaxWidth():number {
+        if(this.getMedia()==='wide') {
+            return 630;
+        }
+        return window.innerWidth - 20;
     }
 }

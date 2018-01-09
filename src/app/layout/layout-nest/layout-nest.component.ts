@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LayoutService } from './../layout.service';
 
 @Component({
   selector: 'app-layout-nest',
@@ -6,4 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./layout-nest.component.scss']
 })
 export class LayoutNestComponent {
+  constructor(public layoutService:LayoutService) {}
 }

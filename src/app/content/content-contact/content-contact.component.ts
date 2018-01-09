@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LayoutService } from './../../layout/layout.service';
 
 @Component({
   selector: 'app-content-contact',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class ContentContactComponent {
   phoneClicked = false;
+
+  constructor(public layoutService:LayoutService) {}
+
+  phoneClick() {
+    this.phoneClicked = true;
+    return false;
+  }
 }

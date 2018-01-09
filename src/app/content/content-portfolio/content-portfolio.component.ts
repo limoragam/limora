@@ -1,16 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { LayoutService } from './../../layout/layout.service';
 
 @Component({
   selector: 'app-content-portfolio',
   templateUrl: './content-portfolio.component.html',
   styleUrls: ['./content-portfolio.component.scss']
 })
-export class ContentPortfolioComponent {
+export class ContentPortfolioComponent implements OnInit {
   hoverScrollDistancePerSec = 600;
-//  arrowTranslateLength = 0;
   arrowTranslateString = "translateY(40px)";
+//  resizeTimeout:any;
 
-  resizeTimeout:any;
+  constructor(public layoutService:LayoutService) {}
 
   ngOnInit() {
     this.calcArrowTranslation();
@@ -32,19 +33,20 @@ export class ContentPortfolioComponent {
       let targetPosition = 0;
       let duration = (currentDistanceFromStart / this.hoverScrollDistancePerSec) * 1000; // (travelling distance / speed) * ms factor
       projectWindow.animate({
-//        scrollTop:targetPosition
         scrollLeft:targetPosition
       }, duration, 'linear');
     // Direction end
     } else {
-//      let targetPosition = projectWindow.prop("scrollHeight") - projectWindow.prop("clientHeight"); // Bottom of text minus window height
       let targetPosition = projectWindow.prop("scrollWidth") - projectWindow.prop("clientLeft"); // Left of text minus window left
       let duration = ((targetPosition - currentDistanceFromStart) / this.hoverScrollDistancePerSec) * 1000; // Travelling distance is target distance minus what's been travelled so far
       projectWindow.animate({
-//        scrollTop:targetPosition
         scrollLeft:targetPosition
       }, duration, 'linear');
     }
+  }
+
+  onHold() {
+    console.log("holding");
   }
 
   calcArrowTranslation() {

@@ -1,8 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 83.343752 113.77083" height="430" width="315">
-    <!-- <path #frameColor [attr.d]="currentVisual.frameColor.d" [ngStyle]="currentVisual.frameColor.attr"/> -->
-    <g #frame>
-        <path *ngFor="let frameLine of currentVisual.frame" [attr.d]="frameLine"/>
-    </g>
     <g #bodyColors>
         <path #beakColor [attr.d]="currentVisual.beakColor.d" [ngStyle]="currentVisual.beakColor.attr"/>
         <path #wingsColor [attr.d]="currentVisual.wingsColor.d" [ngStyle]="currentVisual.wingsColor.attr"/>

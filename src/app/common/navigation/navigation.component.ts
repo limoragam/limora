@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { trigger, transition, query, style, stagger, animate, state } from '@angular/animations';
 import { NavigationService } from './navigation.service';
+import { LayoutService } from './../../layout/layout.service';
 
 @Component({
   selector: 'app-navigation',
@@ -10,25 +9,19 @@ import { NavigationService } from './navigation.service';
 })
 export class NavigationComponent {
 
-  constructor(private activatedRoute:ActivatedRoute, public navigationService:NavigationService) {}
+  constructor(public navigationService:NavigationService, public layoutService:LayoutService) {}
 
   ngAfterViewInit() {
     this.navigationService.initNavigation();
   }
 
-  setMenuItemsPotentialVisiblity() {
-    let currentPath = "/";
-    if(this.activatedRoute.snapshot.url.length > 0) {
-      currentPath = currentPath + this.activatedRoute.snapshot.url[0].path;
+  getClass():string {
+    return this.layoutService.getMedia() + " " + (this.navigationService.menuDisplayed ? 'displayed' : 'hidden');
+  }
+
+  onClick() {
+    if(this.layoutService.getMedia()==='narrow') {
+        this.navigationService.hideMenu();
     }
-    this.navigationService.menuItems.forEach((menuItem, i) => {
-      if("routerLink" in menuItem) {
-        if(menuItem["routerLink"] !== currentPath) {
-          menuItem.display = 'visible';
-        }
-      } else {
-        menuItem.display = 'visible';
-      }
-    });
   }
 }

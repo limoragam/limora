@@ -19,6 +19,7 @@ import { ContentContactComponent } from './content/content-contact/content-conta
 import { ContentPortfolioComponent } from './content/content-portfolio/content-portfolio.component';
 import { ContentAboutComponent } from './content/content-about/content-about.component';
 import { LineHorizontalComponent } from './visuals/line-horizontal/line-horizontal.component';
+import { LineVerticalComponent } from './visuals/line-vertical/line-vertical.component';
 import { VisualNestComponent } from './visuals/visual-nest/visual-nest.component';
 import { VisualEggComponent } from './visuals/visual-egg/visual-egg.component';
 import { VisualFeetComponent } from './visuals/visual-feet/visual-feet.component';
@@ -26,6 +27,7 @@ import { VisualSquawkComponent } from './visuals/visual-squawk/visual-squawk.com
 import { VisualAboutComponent } from './visuals/visual-about/visual-about.component';
 
 import { NavigationService } from './common/navigation/navigation.service';
+import { LayoutService } from './layout/layout.service';
 
 import { SafeUrlPipe } from './common/safe-url.pipe';
 
@@ -40,6 +42,7 @@ import { SafeUrlPipe } from './common/safe-url.pipe';
     ContentContactComponent,
     NavigationComponent,
     LineHorizontalComponent,
+    LineVerticalComponent,
     VisualNestComponent,
     VisualEggComponent,
     VisualFeetComponent,
@@ -58,6 +61,7 @@ import { SafeUrlPipe } from './common/safe-url.pipe';
   ],
   providers: [
     NavigationService,
+    LayoutService
   ],
   bootstrap: [AppComponent]
 })

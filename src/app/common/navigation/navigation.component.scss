@@ -1,32 +1,74 @@
 * {
     white-space: nowrap;
     cursor: pointer;
+    // border: 1px solid purple;
+    padding: 0;
+    margin: 0;
 }
 
 ul {
     list-style: none;
-    position: relative;
 }
 
-@media (min-width: 700px) {
-    ul {
+ul.narrow {
+    position: absolute;
+    border-radius: 0.5em;
+}
+
+ul.hidden.narrow {
+    background-color: transparent;
+    border: transparent;
+}
+
+ul.displayed.narrow {
+    background-color: rgba(200, 190, 180, 0.9);
+    border: 0.5em solid rgba(200, 190, 180, 0.9);
+}
+
+ul.wide {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 0.9em;
+    overflow: hidden;
+    background-color: transparent;
+    border: transparent;
+}
+
+li.displayed {
+    pointer-events: auto;
+}
+
+li.hidden {
+    pointer-events: none;
+}
+
+li.wide {
+    padding-left: 0.8em;
+}
+
+li.wide.displayed {
+    z-index: 1;
+    opacity: 1;
+}
+
+li.wide.hidden {
+    z-index: -1;
+    opacity: 0;
+}
+
+li.narrow {
+    transition: all 400ms ease-in-out;
+}
+
+.separator {
+    width: 100%;
+}
+
+@media (min-width: 680px) {
+    .nav-container {
         display: flex;
-    //   justify-content: space-between;
-        padding: 0;
-        font-size: 0.9em;
-        overflow: hidden;
-        margin: 0;
-        display: inline;
-    }
-
-    li {
-        padding: 0 0.8em 0 0;
-        display: inline-block;
-        vertical-align: middle;
-    }
-
-    .menu-item {
-        z-index: -1;
+        align-items: center;
     }
 
     .egg {
