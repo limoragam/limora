@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
+import { LayoutComponent } from './layout/layout/layout.component';
 import { LayoutNestComponent } from './layout/layout-nest/layout-nest.component';
 import { LayoutContactComponent } from './layout/layout-contact/layout-contact.component';
 import { LayoutPortfolioComponent } from './layout/layout-portfolio/layout-portfolio.component';
@@ -10,9 +11,14 @@ import { LayoutAboutComponent } from './layout/layout-about/layout-about.compone
 const appRoutes:Routes = [
   { 
     path:'', 
-    component:LayoutNestComponent, 
+    component:LayoutComponent, 
     pathMatch:'full' 
   },
+  // { 
+  //   path:'', 
+  //   component:LayoutNestComponent, 
+  //   pathMatch:'full' 
+  // },
   { 
     path:'contact', 
     component:LayoutContactComponent, 

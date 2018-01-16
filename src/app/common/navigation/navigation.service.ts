@@ -1,64 +1,64 @@
+import { Injectable } from '@angular/core';
+import { LayoutService } from './../../layout/layout.service';
+
+@Injectable()
 export class NavigationService {
     menuItems = [
         {
-            'display': 'hidden', 'routerLink': '/', 'text': 'the nest',
+            'routerLink': '/', 
+            'text': 'the nest',
             'style': {
-                'opacity': 0,
-                'pointer-events': 'auto',
-                'transform': 'translateX(0)',
                 'transition': 'all 400ms ease-in-out',
+                'transition-delay': '0ms',
             }
         },
         {
-            'display': 'hidden', 'routerLink': '/contact', 'text': 'contact',
+            'routerLink': '/contact', 
+            'text': 'contact',
             'style': {
-                'opacity': 0,
-                'pointer-events': 'auto',
-                'transform': 'translateX(0)',
-                'transition': 'all 400ms ease-in-out 100ms',
+                'transition': 'all 400ms ease-in-out',
+                'transition-delay': '100ms',
             }
         },
         {
-            'display': 'hidden', 'routerLink': '/portfolio', 'text': 'portfolio',
+            'routerLink': '/portfolio', 
+            'text': 'portfolio',
             'style': {
-                'opacity': 0,
-                'pointer-events': 'auto',
-                'transform': 'translateX(0)',
-                'transition': 'all 400ms ease-in-out 200ms'
+                'transition': 'all 400ms ease-in-out',
+                'transition-delay': '200ms',
             }
         },
         {
-            'display': 'hidden', 'routerLink': '/feet', 'text': 'see my feet?',
+            'routerLink': '/feet', 
+            'text': 'see my feet?',
             'style': {
-                'opacity': 0,
-                'pointer-events': 'auto',
-                'transform': 'translateX(0)',
-                'transition': 'all 400ms ease-in-out 300ms'
+                'transition': 'all 400ms ease-in-out',
+                'transition-delay': '300ms',
             }
         },
         {
-            'display': 'hidden', 'routerLink': '/about', 'text': 'about',
+            'routerLink': '/about', 
+            'text': 'about',
             'style': {
-                'opacity': 0,
-                'pointer-events': 'auto',
-                'transform': 'translateX(0)',
-                'transition': 'all 400ms ease-in-out 400ms'
+                'transition': 'all 400ms ease-in-out',
+                'transition-delay': '400ms',
             }
         },
         {
-            'display': 'hidden', 'href': 'https://docs.google.com/document/d/1DdD9o8-wtia5Tg2jGmxhxWYXDEjXFfdjW-khLE0bNO4/edit?usp=sharing', 'text': 'cv',
+            'href': 'https://docs.google.com/document/d/1DdD9o8-wtia5Tg2jGmxhxWYXDEjXFfdjW-khLE0bNO4/edit?usp=sharing', 
+            'text': 'cv',
             'style': {
-                'opacity': 0,
-                'pointer-events': 'auto',
-                'transform': 'translateX(0)',
-                'transition': 'all 400ms ease-in-out 500ms'
+                'transition': 'all 400ms ease-in-out',
+                'transition-delay': '500ms',
             }
         },
     ];
 
-    menuDisplayed = true;
+    menuDisplayed = false;
     hoverOnce = false;
     initNav = false;
+
+    constructor(private layoutService:LayoutService) {}
 
     initNavigation() {
         if(!this.initNav) {
@@ -68,7 +68,7 @@ export class NavigationService {
     }
 
     onHover() {
-        if(!this.hoverOnce) {
+        if(!this.hoverOnce && this.layoutService.getMedia()==='wide') {
             this.showMenu();
             this.hoverOnce = true;
         }
@@ -80,26 +80,56 @@ export class NavigationService {
 
     showMenu() {
         if (!this.menuDisplayed) {
-            this.menuItems.forEach((menuItem) => {
-                menuItem.style.opacity = 1;
-                menuItem.style.transform = 'translateX(0)';
-                menuItem.style['pointer-events'] = 'auto';
-            })
+            switch(this.layoutService.getMedia()) {
+                case 'narrow':
+                this.menuItems.forEach((menuItem)=> {
+                    menuItem.style['display'] = 'block';
+                    menuItem.style['z-index'] = 3;
+                });
+                break;
+
+                case 'wide':
+                this.menuItems.forEach((menuItem,i) => {
+                    menuItem.style['transform'] = 'translateX(0)';
+                    menuItem.style['transition-delay'] = (this.menuItems.length - i - 1) + "00ms";
+                });
+                break;
+
+                default:
+                console.log("No media detected");
+                break;
+            }
+
             this.menuDisplayed = true;
         }
     }
 
     hideMenu() {
-        if (this.menuDisplayed) {
-            // Use jQuery to calculate translateX
-            let eggLeft = $(".egg").position().left;
-            let items = $(".menu-item");
-            items.each((i, item) => {
-                let itemOffset = eggLeft - $(item).position().left;
-                this.menuItems[i].style.opacity = 0;
-                this.menuItems[i].style.transform = "translateX(" + itemOffset + "px)";
-                this.menuItems[i].style['pointer-events'] = 'none';
-            });
+        if (this.menuDisplayed || !this.initNav) {
+            switch(this.layoutService.getMedia()) {
+                case 'narrow':
+                this.menuItems.forEach((menuItem) => {
+                    menuItem.style['display'] = 'none';
+                    menuItem.style['z-index'] = -1;
+                });
+                break;
+
+                case 'wide':
+                // Use jQuery to calculate translateX
+                let eggLeft = $(".egg").offset().left;
+                let items = $("li");
+                items.each((i, item) => {
+                    let itemOffset = eggLeft - $(item).offset().left;
+                    this.menuItems[i].style['transform'] = "translateX(" + itemOffset + "px)";
+                    this.menuItems[i].style['transition-delay'] = i + "00ms";
+                });
+                break;
+
+                default:
+                console.log("No media detected");
+                break;
+            }
+
             this.menuDisplayed = false;
         }
     }

@@ -3,7 +3,7 @@
     <div class="images" id="imagesGliding">
         <!-- for some reason figure won't keep its width if there isn't a free div above it -->
         <div>
-            <figure>
+            <figure [ngStyle]="{'width':layoutService.getMaxWidth()+'px'}">
                 <img class="gliding" src="/assets/images/Gliding.png" alt="Megido Gliding Center landing page">
                 <figcaption>
                     Mockup for "Megido Gliding Center": Landing page (desktop)
@@ -11,7 +11,7 @@
             </figure>
         </div>
         <div>
-            <figure>
+            <figure [ngStyle]="{'width':layoutService.getMaxWidth()+'px'}">
                 <img class="gliding" src="/assets/images/Gliding Mobile.png" alt="Megido Gliding Center for mobile">
                 <figcaption>
                     Landing page (mobile)
@@ -19,15 +19,29 @@
             </figure>
         </div>
     </div>
-    <div class="arrow prev" [ngStyle]="{'transform':arrowTranslateString}" (mouseenter)="scroll('imagesGliding', 'start')" (mouseleave)="scroll('imagesGliding', 'none')">&#x276c;</div>
-    <div class="arrow next" [ngStyle]="{'transform':arrowTranslateString}" (mouseenter)="scroll('imagesGliding', 'end')" (mouseleave)="scroll('imagesGliding', 'none')">&#x276d;</div>
+    <div 
+        class="arrow prev" 
+        [ngStyle]="{'transform':arrowTranslateString}" 
+        (mouseenter)="scroll('imagesGliding', 'start')" 
+        (mouseleave)="scroll('imagesGliding', 'none')"
+        (touchstart)="scroll('imagesGliding', 'start')" 
+        (touchend)="scroll('imagesGliding', 'none')"
+        >&#x276c;</div>
+    <div 
+        class="arrow next" 
+        [ngStyle]="{'transform':arrowTranslateString}" 
+        (mouseenter)="scroll('imagesGliding', 'end')" 
+        (mouseleave)="scroll('imagesGliding', 'none')"
+        (touchstart)="scroll('imagesGliding', 'end')" 
+        (touchend)="scroll('imagesGliding', 'none')"
+        >&#x276d;</div>
 </div>
     
 <!-- Pizzka -->
 <div class="project pizzka">
     <div class="images" id="imagesPizzka">
         <div>
-            <figure>
+            <figure [ngStyle]="{'width':layoutService.getMaxWidth()+'px'}">
                 <img class="pizzka" src="/assets/images/Pizzka.png" alt="Pizzka Restaurant Landing">
                 <figcaption>
                     Mockup for "Pizzka": Landing page<br>
@@ -36,7 +50,7 @@
             </figure>
         </div>
         <div>
-            <figure>
+            <figure [ngStyle]="{'width':layoutService.getMaxWidth()+'px'}">
                 <img class="pizzka" src="/assets/images/Pizzka Menu.png" alt="Pizzka Restaurant Menu">
                 <figcaption>
                     Menu page
@@ -44,6 +58,20 @@
             </figure>
         </div>
     </div>
-    <div class="arrow prev" [ngStyle]="{'transform':arrowTranslateString}" (mouseenter)="scroll('imagesPizzka', 'start')" (mouseleave)="scroll('imagesPizzka', 'none')">&#x276c;</div>
-    <div class="arrow next" [ngStyle]="{'transform':arrowTranslateString}" (mouseenter)="scroll('imagesPizzka', 'end')" (mouseleave)="scroll('imagesPizzka', 'none')">&#x276d;</div>
+    <div 
+        class="arrow prev" 
+        [ngStyle]="{'transform':arrowTranslateString}" 
+        (mouseenter)="scroll('imagesPizzka', 'start')" 
+        (mouseleave)="scroll('imagesPizzka', 'none')"
+        (touchstart)="scroll('imagesPizzka', 'start')" 
+        (touchend)="scroll('imagesPizzka', 'none')"
+        >&#x276c;</div>
+    <div 
+        class="arrow next" 
+        [ngStyle]="{'transform':arrowTranslateString}" 
+        (mouseenter)="scroll('imagesPizzka', 'end')" 
+        (mouseleave)="scroll('imagesPizzka', 'none')"
+        (touchstart)="scroll('imagesPizzka', 'end')" 
+        (touchend)="scroll('imagesPizzka', 'none')"
+        >&#x276d;</div>
 </div>

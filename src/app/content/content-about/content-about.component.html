@@ -1,6 +1,6 @@
 <h2>about me</h2>
 <div class="content">
-  <div class="smell text" (click)="onClick('rain',false)">my favorite smell is<span *ngIf="!flags.rain" [@fadeOut]>...</span><span class="showMe" *ngIf="flags.rain" [@fadeIn]> rain.</span></div>
+  <div class="smell text" (click)="openFavorite('rain',false)">my favorite smell is<span *ngIf="!flags.rain" [@fadeOut]>...</span><span class="showMe" *ngIf="flags.rain" [@fadeIn]> rain.</span></div>
   <div class="smell icon" *ngIf="flags.rain" [@fadeIn]>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.225002 25.929168" height="98" width="84">
         <g>
@@ -10,7 +10,7 @@
     </svg>
   </div>
 
-  <div class="noise text" (click)="onClick('noise',false)">my favorite noise is<span *ngIf="!flags.noise" [@fadeOut]>...</span><span class="showMe" *ngIf="flags.noise" [@fadeIn]> helicopter.</span></div>
+  <div class="noise text" (click)="openFavorite('noise',false)">my favorite noise is<span *ngIf="!flags.noise" [@fadeOut]>...</span><span class="showMe" *ngIf="flags.noise" [@fadeIn]> helicopter.</span></div>
   <div class="noise icon" *ngIf="flags.noise" [@fadeIn]>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.225002 25.929168" height="98" width="84">
       <g>
@@ -21,7 +21,7 @@
     </svg>
   </div>
 
-  <div class="color text" (click)="onClick('color',false)">my favorite color is<span *ngIf="!flags.color" [@fadeOut]>...</span><span class="showMe" *ngIf="flags.color" [@fadeIn]> ripe wheat dancing in the wind.</span></div>
+  <div class="color text" (click)="openFavorite('color',false)">my favorite color is<span *ngIf="!flags.color" [@fadeOut]>...</span><span class="showMe" *ngIf="flags.color" [@fadeIn]> ripe wheat dancing in the wind.</span></div>
   <div class="color icon" *ngIf="flags.color" [@fadeIn]>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.225002 25.929168" height="98" width="84">
       <g>
@@ -42,7 +42,7 @@
     </svg>
   </div>
 
-  <div class="drink text" (click)="onClick('drink',true)">my favorite drink is<span *ngIf="!flags.drink" [@fadeOut]>...</span><span class="showMe" *ngIf="flags.drink" [@fadeIn]> beer with a sort of greenish taste.</span><span class="showMe" *ngIf="flags.drink" [@fadeInDelayed]><br>know what i mean?</span></div>
+  <div class="drink text" (click)="openFavorite('drink',true)">my favorite drink is<span *ngIf="!flags.drink" [@fadeOut]>...</span><span class="showMe" *ngIf="flags.drink" [@fadeIn]> beer with a sort of greenish taste.</span><span class="showMe" *ngIf="flags.drink" [@fadeInDelayed]><br>know what i mean?</span></div>
   <div class="drink icon" *ngIf="flags.drink" [@fadeIn]>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.225002 25.929168" height="98" width="84">
       <g>
@@ -53,7 +53,7 @@
     </svg>
   </div>
 
-  <div class="hour text" (click)="onClick('hour',true)">my favorite hour is<span *ngIf="!flags.hour" [@fadeOut]>...</span><span class="showMe" *ngIf="flags.hour" [@fadeIn]> 4:42 am.</span><span class="showMe" *ngIf="flags.hour" [@fadeInDelayed]><br>conceptually, anyway.</span></div>
+  <div class="hour text" (click)="openFavorite('hour',true)">my favorite hour is<span *ngIf="!flags.hour" [@fadeOut]>...</span><span class="showMe" *ngIf="flags.hour" [@fadeIn]> 4:42 am.</span><span class="showMe" *ngIf="flags.hour" [@fadeInDelayed]><br>conceptually, anyway.</span></div>
   <div class="hour icon" *ngIf="flags.hour" [@fadeIn]>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.225002 25.929168" height="98" width="84">
       <g>
@@ -64,7 +64,7 @@
     </svg>
   </div>
 
-  <div class="word text" (click)="onClick('word',true)">my favorite word is<span *ngIf="!flags.word" [@fadeOut]>...</span><span class="showMe" *ngIf="flags.word" [@fadeIn]> pamplemousse.</span></div>
+  <div class="word text" (click)="openFavorite('word',true)">my favorite word is<span *ngIf="!flags.word" [@fadeOut]>...</span><span class="showMe" *ngIf="flags.word" [@fadeIn]> pamplemousse.</span></div>
   <div class="word icon" *ngIf="flags.word" [@fadeIn]>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.225002 25.929168" height="98" width="84">
       <g>
@@ -78,7 +78,7 @@
     </svg>
   </div>
 
-  <div class="job text" (click)="onClick('job',true)">my favorite job is<span *ngIf="!flags.job" [@fadeOut]>...</span><span class="showMe" *ngIf="flags.job" [@fadeIn]> now.</span></div>
+  <div class="job text" (click)="openFavorite('job',true)">my favorite job is<span *ngIf="!flags.job" [@fadeOut]>...</span><span class="showMe" *ngIf="flags.job" [@fadeIn]> now.</span></div>
   <div class="job icon" *ngIf="flags.job" [@fadeIn]>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.225002 25.929168" height="98" width="84">
       <g>

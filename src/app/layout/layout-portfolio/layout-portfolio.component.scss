@@ -1,9 +1,3 @@
-.layout-wrapper {
-    width: 80vw;
-    max-width: 640px;
-    margin: 0 auto;
-}
-
 // .layout-wrapper > * {
 //     border: 1px solid #f08c00;
 // }
@@ -15,30 +9,19 @@ nav {
 
 .layout-content {
     grid-area: content;
-    width: 640px;
     overflow: hidden;
-}
-.layout-separator {
-    grid-area: separator;
 }
 .layout-nav {
     grid-area: nav;
+    z-index: 10;
 }
 .layout-wrapper {
+    margin: 0 auto;
     display: grid;
+    max-width: 630px;
     grid-row-gap: 5px;
     grid-column-gap: 20px;
     grid-template-areas: 
         "nav"
-        "separator"
         "content";
 }
-// @media (min-width: 700px) {
-//     .layout-wrapper {
-//         grid-template-columns: 1fr 1fr;
-//         grid-template-areas: 
-//             "nav       nav"
-//             "separator separator" 
-//             "visual     content";
-//     }
-// }
