@@ -30,6 +30,7 @@ import { NavigationService } from './common/navigation/navigation.service';
 import { LayoutService } from './layout/layout.service';
 
 import { SafeUrlPipe } from './common/safe-url.pipe';
+import { LayoutComponent } from './layout/layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { SafeUrlPipe } from './common/safe-url.pipe';
     LayoutAboutComponent,
     ContentAboutComponent,
     VisualAboutComponent,
+    LayoutComponent,
   ],
   imports: [
     BrowserModule,

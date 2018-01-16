@@ -1,0 +1,46 @@
+* {
+    padding: 0;
+    margin: 0;
+    // border: 1px solid pink;
+}
+
+.wrapper {
+    margin-top: 10px;
+    height:100vh;
+    width: 100vw;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+.image-wrapper, .frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;   // It is important that width and height are given to the overflow:hidden element (and not parent element)
+    height: 100vh;
+    overflow: hidden;
+    margin: 0 auto;
+    transition: 600ms opacity ease-in-out;
+//    border: 1px solid blue;
+}
+
+.image-wrapper {
+    transform: translateX(100vw);
+}
+
+.frame {
+    z-index: -2;
+}
+
+@media screen and (orientation:landscape) {
+    img, svg {
+        height: 95vh;
+    }
+}
+
+@media screen and (orientation:portrait) {
+    img, svg {
+        width:95vw;
+    }
+}
