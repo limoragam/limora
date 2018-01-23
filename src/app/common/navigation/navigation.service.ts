@@ -29,14 +29,6 @@ export class NavigationService {
             }
         },
         {
-            'routerLink': '/feet', 
-            'text': 'see my feet?',
-            'style': {
-                'transition': 'all 400ms ease-in-out',
-                'transition-delay': '300ms',
-            }
-        },
-        {
             'routerLink': '/about', 
             'text': 'about',
             'style': {
