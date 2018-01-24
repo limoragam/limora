@@ -1,0 +1,58 @@
+<div class="wrapper-nav">
+  <svg 
+    class="about" 
+    xmlns="http://www.w3.org/2000/svg" 
+    viewBox="0 0 36.430897 13.203297" 
+    [attr.height]="aboutHeight" 
+    [attr.width]="aboutWidth"
+    >
+    <g fill="#333">
+      <g>
+        <path d="M.585 9.544c1.28-2.632 1.741-5.634 3.022-8.228C6.613 1.79 5.942 6.54 7.24 8.83c.875 2.565-1.954.394-1.567-1.27-.03-1.437-1.925-5.85-1.437-5.149-1 2.554-1.585 5.266-2.734 7.757-.41.466-1.187-.087-.917-.623z"/>
+        <path d="M2.82 6.457c1.03-.216 5.42-.463 2.95.877-.751.125-5.1.8-2.95-.877z"/>
+      </g>
+      <path d="M10.358 2.568c-.534 1.276 1.813 5.306.686 4.977.18-2.284 4.56-2.024 3.929 1.111.115 2.857-5.96 1.066-3.131.045 2.155 2.306 2.544-3.055.53-1.249-2.233 3.314-2.727-2.416-3.07-4.205-.54-.899.805-1.97 1.056-.68zM19.387 6.916c-1.845 1.73 2.227 3.377 1.33.523-.469-.727-3.273-.188-1.387-1.552 3.823-1.194 2.851 6.399-.531 3.845-2.187-.352.025-5.752.588-2.816zM25.901 7.898c1.017 2.822 1.966-.91 1.295-1.732 3.672-.454-.768 7.307-2.237 2.407-.69-.772.579-1.74.942-.675z"/>
+      <g>
+        <path d="M33.701 1.272c-.483 2.503-1.5 5.714.058 7.913 1.774.151-.875 2.219-1.39.089-.91-2.743-.23-5.776.34-8.522.372-.514 1.193-.055.992.52z"/>
+        <path d="M32.298 2.933c1.105.027 5.398.038 2.761 1.182-.77.002-5.04.255-2.76-1.182z"/>
+      </g>
+    </g>
+    <path d="M1.72 11.31a31.61 31.61 0 0 0 2.305.002c.53.014 1.065-.025 1.593.02.234-.006.466-.021.7-.022.955 0 .955 1.351 0 1.351-.233.007-.468.029-.7-.007-.53.032-1.061.004-1.593-.004-.767.021-1.537-.03-2.305.011-.955 0-.955-1.351 0-1.351z" fill="#c87137"/>
+  </svg>
+  <div class="x" (click)="onClose()">
+    <svg class="x" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 6.2406016 6.3761974" [attr.height]="xHeight" [attr.width]="xWidth">
+      <path d="M6.24.45c-.7.815-1.467 1.562-2.25 2.287-.438.413-.775.925-1.207 1.343-.649.68-1.207 1.447-1.784 2.194-.106.236-.348-.007-.52-.028-.184-.102-.694-.129-.35-.367.269-.34.53-.688.788-1.036.402-.464.759-.974 1.207-1.393.39-.38.68-.857 1.089-1.217.716-.69 1.47-1.343 2.097-2.13.314.1.626.216.93.347z"/>
+      <path d="M.883 0c.558.557 1.034 1.2 1.612 1.737.317.35.64.695.893 1.101.306.471.658.908 1.011 1.34.315.313.657.593.987.888.254.258.558.579.525.979-.134.357-.582.122-.802-.02-.412-.28-.767-.641-1.147-.967-.711-.642-1.21-1.488-1.785-2.254-.445-.523-.95-.984-1.387-1.516A15.754 15.754 0 0 0 0 .446C.287.283.583.134.883 0z"/>
+    </svg>
+  </div>
+  <br><br>
+  <div class="content">
+    <p>
+      <span class="hi">Hi,</span><br>
+      <br>My name is <b>Limor&nbsp;Agam</b>.
+      I am a curious, adventurous soul.
+      And so are you, apparently, if you're going about clicking on potentially poisonous mushrooms.
+    </p>
+    <br>
+    <p>
+      I believe that drawn lines can convey many of our most basic emotions, relationships and personalities. 
+      They can make us giggle or frown, be empathic or annoyed. This is because they are our reflection.
+      Simple lines make it easier for someone else to connect to you and your ideas.
+      <b>I am here to do the conveying.</b><br>
+      From book illustrations to websites, graffiti to pyjamas, paper to trucks. You dream it. I'll make it happen.
+    </p>
+    <br>
+    <b>You can talk to me</b>
+    <ul>
+      <li>here: <a href="#" (click)="phoneClick()"><img class="icon" src="/assets/images/IconPhone.svg" alt="Phone"></a><span class="phone" [ngStyle]="{'opacity':phoneClicked ? 1 : 0}"> +972.50.7973765</span></li>
+      <li>here: <a href="mailto:limoragam@gmail.com"><img class="icon" src="/assets/images/IconGmail.svg" alt="Mail"></a></li>
+      <li>here: <a href="https://www.facebook.com/limor.agam.9" target="_blank"><img class="icon" src="/assets/images/IconFB.svg" alt="Facebook"></a></li>
+      <li>here: <a href="https://www.linkedin.com/in/limoragam" target="_blank"><img class="icon" src="/assets/images/IconLI.svg" alt="LinkedIn"></a></li>
+    </ul>
+    <br>
+    <b>You can see my work</b>
+    <ul>
+      <li>here: <a href="https://www.linkedin.com/in/limoragam" target="_blank"><img class="icon" src="/assets/images/IconInstagram.svg" alt="LinkedIn"></a></li>
+    </ul>
+  </div>
+</div>

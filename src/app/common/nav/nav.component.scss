@@ -1,0 +1,31 @@
+@import "../../commonStyles.scss";
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.x {
+    float: right;
+    cursor: pointer;
+}
+
+.icon {
+    height: 2em;
+    vertical-align: top;
+}
+
+.wrapper-nav {
+    text-align: left;
+    border: 1px solid $text-color;
+    border-radius: 1em;
+    padding: 1em;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin: 0.3em 0 0.2em 0.5em;
+}
