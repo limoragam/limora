@@ -76,7 +76,7 @@ export class VisualDragonComponent {
     }
 
     this.visualDragonService.smokeSeries.forEach((smokeStage,index) => {
-      timeline.to(smokeElement.nativeElement, 0.02+index/10, { attr: {
+      timeline.to(smokeElement.nativeElement, 0.02+index/20, { attr: {
         d:smokeWispVisuals[smokeStage.visualIndex],
         opacity:smokeStage.opacity,
       }, 
