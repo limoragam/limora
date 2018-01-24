@@ -7,8 +7,8 @@ import { LayoutService } from '../../layout/layout.service';
   styleUrls: ['./nav.component.scss'],
 })
 export class NavComponent {
-  aboutHeight = "49.902";
-  aboutWidth = "137.692";
+  aboutHeight = "60";
+  aboutWidth = "140";
   xHeight = "24.099";
   xWidth = "23.587";
   @Output() hide:EventEmitter<any> = new EventEmitter<any>();

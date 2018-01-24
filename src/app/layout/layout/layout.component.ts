@@ -1,3 +1,4 @@
+import { VisualMushroomComponent } from './../../visuals/visual-mushroom/visual-mushroom.component';
 import { NavComponent } from './../../common/nav/nav.component';
 import { Component, ViewChild } from '@angular/core';
 import { LayoutService } from './../layout.service';
@@ -29,6 +30,7 @@ import { trigger, transition, style, animate, state } from '@angular/animations'
 })
 export class LayoutComponent {
   @ViewChild(VisualDragonComponent) visualDragonComponent:VisualDragonComponent;
+  @ViewChild(VisualMushroomComponent) visualMushroomComponent:VisualMushroomComponent;
   showNav = false;
 
   constructor(public layoutService:LayoutService) { }
@@ -40,13 +42,14 @@ export class LayoutComponent {
   animateImages() {
     let duration = 2;
     let wrapperWidth = $(".wrapper").width() * -1;
-    let images = $(".image");
+    let images = $(".dynamic");
     for (let i = 0; i < images.length; i++) {
       let tl = new TimelineLite({ delay: i * duration, ease: Cubic.easeInOut });
       tl.to(images[i], duration, { x: 0 });
       if (i === images.length - 1) {
         tl.call(()=>{
           this.visualDragonComponent.doAnimation();
+          this.visualMushroomComponent.show = true;
         });
       } else {
         tl.to(images[i], duration, { x: wrapperWidth }, "+=1");

@@ -16,10 +16,11 @@
 }
 
 .wrapper-nav {
-    text-align: left;
+    text-align: center;
     border: 1px solid $text-color;
     border-radius: 1em;
     padding: 1em;
+    background-color: $background-color
 }
 
 ul {
@@ -27,5 +28,5 @@ ul {
 }
 
 li {
-    margin: 0.3em 0 0.2em 0.5em;
+    margin: 0.3em;
 }

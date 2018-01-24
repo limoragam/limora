@@ -1,4 +1,7 @@
 export class LayoutService {
+    originalMainVisualHeight = 710;
+    originalMainVisualWidth = 840;
+    visualsPercentage = 1;
     mainVisualHeight = "95vh";
     mainVisualWidth = "95vw";
 
@@ -10,6 +13,7 @@ export class LayoutService {
 
     constructor() {
         this.setMainVisualDimensions();
+        this.setVisualsPercentage();
     }
 
     getMedia():string {
@@ -32,7 +36,19 @@ export class LayoutService {
         this.mainVisualWidth = this.getOrientation()==="portrait" ? "95vw" : null;
     }
 
+    setVisualsPercentage() {
+        let currentMainVisualWidth = $(".mainImage").width();
+        if(currentMainVisualWidth>0) {
+            this.visualsPercentage = currentMainVisualWidth/this.originalMainVisualWidth;
+        } else {
+            this.visualsPercentage = this.getOrientation()==="landscape" ? 
+                this.visualsPercentage = (window.innerHeight * 0.95) / this.originalMainVisualHeight : 
+                this.visualsPercentage = (window.innerWidth * 0.95) / this.originalMainVisualWidth;
+        }
+    }
+
     onResize(event:Event) {
         this.setMainVisualDimensions();
+        this.setVisualsPercentage();
     }
 }

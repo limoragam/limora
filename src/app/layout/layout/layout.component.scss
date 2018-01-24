@@ -16,9 +16,10 @@
     top: 0;
     left: 0;
     width: 100vw;
+    // border: 1px solid blue;
 }
 
-.image {
+.dynamic {
     transform: translateX(100vw);
 }
 
@@ -26,6 +27,16 @@
     position: absolute;
     top: 0;
     left: 0;
-    padding: 0 2em;
+    padding: 2em;
     width: 100vw;
+    min-height: 100vh;
+}
+
+.mushroom {
+    position: absolute;
+    left: 0;
+    margin: 0 0 0.5em 0.5em;
+    cursor: pointer;
+    z-index: 20;
+//    border: 1px solid green;
 }

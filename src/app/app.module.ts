@@ -30,6 +30,7 @@ import { VisualXComponent } from './visuals/visual-x/visual-x.component';
 import { VisualLimoragamComponent } from './visuals/visual-limoragam/visual-limoragam.component';
 import { VisualDragonComponent } from './visuals/visual-dragon/visual-dragon.component';
 import { NavComponent } from './common/nav/nav.component';
+import { VisualMushroomComponent } from './visuals/visual-mushroom/visual-mushroom.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { NavComponent } from './common/nav/nav.component';
     VisualLimoragamComponent,
     VisualDragonComponent,
     NavComponent,
+    VisualMushroomComponent,
   ],
   imports: [
     BrowserModule,

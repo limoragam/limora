@@ -1,17 +1,21 @@
 <div class="wrapper" (window:resize)="layoutService.onResize($event)">
-  <div class="fullwidth-wrapper image" *ngFor="let svg of layoutService.svgs" >
+  <div class="fullwidth-wrapper dynamic" *ngFor="let svg of layoutService.svgs" >
     <img 
+      class="mainImage"
       [src]="svg" alt="See My Feet?" 
       [style.width]="layoutService.mainVisualWidth" 
       [style.height]="layoutService.mainVisualHeight"
       >
   </div>
 
-  <div class="fullwidth-wrapper image">
+  <div class="fullwidth-wrapper dynamic">
     <app-visual-dragon></app-visual-dragon>
   </div>
-  <div class="fullwidth-wrapper title" [@fadeIn]>
+  <div class="fullwidth-wrapper static" [@fadeIn]>
     <app-visual-limoragam></app-visual-limoragam>
+  </div>
+  <div class="mushroom" [@fadeIn] [ngStyle]="{'bottom':'5vh'}" (click)="showNav=true">
+    <app-visual-mushroom (click)="showNav=true"></app-visual-mushroom>
   </div>
   <div class="partialwidth-wrapper" [ngStyle]="{'opacity':showNav ? 1 : 0}">
     <app-nav (hide)="showNav=false"></app-nav>
