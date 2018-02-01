@@ -2,30 +2,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 import { LayoutComponent } from './layout/layout/layout.component';
-import { LayoutContactComponent } from './layout/layout-contact/layout-contact.component';
-import { LayoutPortfolioComponent } from './layout/layout-portfolio/layout-portfolio.component';
-import { LayoutAboutComponent } from './layout/layout-about/layout-about.component';
 
 const appRoutes:Routes = [
   { 
     path:'', 
     component:LayoutComponent, 
     pathMatch:'full' 
-  },
-  { 
-    path:'contact', 
-    component:LayoutContactComponent, 
-    pathMatch:'full'
-  },
-  { 
-    path:'portfolio', 
-    component:LayoutPortfolioComponent, 
-    pathMatch:'full'
-  },
-  {
-    path:'about', 
-    component:LayoutAboutComponent, 
-    pathMatch:'full'
   },
   // {path:'not-found', component:ErrorPageComponent, data:{message:'Error Message: Page not Found'}},
   // {path:'**', redirectTo:'/not-found'}
