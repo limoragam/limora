@@ -14,10 +14,10 @@
   <div class="fullwidth-wrapper static" [@fadeIn]>
     <app-visual-limoragam></app-visual-limoragam>
   </div>
-  <div class="mushroom" [@fadeIn] [ngStyle]="{'bottom':'5vh'}" (click)="showNav=true">
-    <app-visual-mushroom (click)="showNav=true"></app-visual-mushroom>
+  <div class="mushroom" [@fadeIn] [ngStyle]="mushroomStyle">
+    <app-visual-mushroom (click)="onMushroomClick()"></app-visual-mushroom>
   </div>
-  <div class="partialwidth-wrapper" [ngStyle]="{'opacity':showNav ? 1 : 0}">
-    <app-nav (hide)="showNav=false"></app-nav>
+  <div class="partialwidth-wrapper">
+    <app-about></app-about>
   </div>
 </div>

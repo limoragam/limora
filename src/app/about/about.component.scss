@@ -1,0 +1,51 @@
+@import "../commonStyles.scss";
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.x {
+    position: fixed;
+    top: 2.5em;
+    right: 3.5em;
+}
+
+.x.displayed {
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.x.hidden {
+    pointer-events: none;
+    cursor: default;
+}
+
+.pic {
+    height: 20vh;
+}
+
+.silliness {
+    height: 25vh;
+}
+
+.wrapper-about {
+    position: relative;
+    text-align: center;
+    border: 1px solid $text-color;
+    border-radius: 1em;
+    padding: 1em;
+    background-color: rgb(240,240,240);
+    height: 75vh;
+    overflow-y: auto;
+    position: relative;
+    transition: opacity 400ms ease-in-out;
+}
+
+.content {
+    line-height: 2em;
+}
+
+.large-text {
+    font-size: 1.5em;
+}

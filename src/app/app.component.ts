@@ -9,5 +9,5 @@ import { AnimationService } from './visuals/animation.service';
   providers: [AttributesService, AnimationService]
 })
 export class AppComponent {
-  title = 'Limor Agam';
+  title = 'Limor Agam - Illustration & Design';
 }

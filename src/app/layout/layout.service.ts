@@ -5,10 +5,16 @@ export class LayoutService {
     mainVisualHeight = "95vh";
     mainVisualWidth = "95vw";
 
-    svgs = [
+    svgs = this.getOrientation()==='landscape' ? 
+    [
         "/assets/images/Feet01.svg",
         "/assets/images/Feet02.svg",
         "/assets/images/Feet03.svg",
+    ] :
+    [
+        "/assets/images/Feet01P.svg",
+        "/assets/images/Feet02P.svg",
+        "/assets/images/Feet03P.svg",
     ]
 
     constructor() {

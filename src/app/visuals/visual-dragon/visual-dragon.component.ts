@@ -34,14 +34,17 @@ export class VisualDragonComponent {
     let timeline = new TimelineLite();
     timeline.delay(delay);
 
+    let paths = this.layoutService.getOrientation()==='landscape' ? 
+      this.visualDragonService.eyeLandscape : 
+      this.visualDragonService.eyePortrait;
     this.visualDragonService.blinkSeries.forEach(blinkStage => {
-      timeline.to(this.line01.nativeElement, 0.1, { attr: {d:this.visualDragonService.eyeVisuals.line01morph[blinkStage.visualIndex]}, ease: Cubic.easeInOut}, blinkStage.label);
-      timeline.to(this.line02.nativeElement, 0.1, { attr: {d:this.visualDragonService.eyeVisuals.line02morph[blinkStage.visualIndex]}, ease: Cubic.easeInOut}, blinkStage.label);
-      timeline.to(this.line03.nativeElement, 0.1, { attr: {d:this.visualDragonService.eyeVisuals.line03morph[blinkStage.visualIndex]}, ease: Cubic.easeInOut}, blinkStage.label);
-      timeline.to(this.line04.nativeElement, 0.1, { attr: {d:this.visualDragonService.eyeVisuals.line04morph[blinkStage.visualIndex]}, ease: Cubic.easeInOut}, blinkStage.label);
-      timeline.to(this.line05.nativeElement, 0.1, { attr: {d:this.visualDragonService.eyeVisuals.line05morph[blinkStage.visualIndex]}, ease: Cubic.easeInOut}, blinkStage.label);
-      timeline.to(this.line06.nativeElement, 0.1, { attr: {d:this.visualDragonService.eyeVisuals.line06morph[blinkStage.visualIndex]}, ease: Cubic.easeInOut}, blinkStage.label);
-      timeline.to(this.line07.nativeElement, 0.1, { attr: {d:this.visualDragonService.eyeVisuals.line07morph[blinkStage.visualIndex]}, ease: Cubic.easeInOut}, blinkStage.label);
+      timeline.to(this.line01.nativeElement, 0.1, { attr: {d:paths.line01morph[blinkStage.visualIndex]}, ease: Cubic.easeInOut}, blinkStage.label);
+      timeline.to(this.line02.nativeElement, 0.1, { attr: {d:paths.line02morph[blinkStage.visualIndex]}, ease: Cubic.easeInOut}, blinkStage.label);
+      timeline.to(this.line03.nativeElement, 0.1, { attr: {d:paths.line03morph[blinkStage.visualIndex]}, ease: Cubic.easeInOut}, blinkStage.label);
+      timeline.to(this.line04.nativeElement, 0.1, { attr: {d:paths.line04morph[blinkStage.visualIndex]}, ease: Cubic.easeInOut}, blinkStage.label);
+      timeline.to(this.line05.nativeElement, 0.1, { attr: {d:paths.line05morph[blinkStage.visualIndex]}, ease: Cubic.easeInOut}, blinkStage.label);
+      timeline.to(this.line06.nativeElement, 0.1, { attr: {d:paths.line06morph[blinkStage.visualIndex]}, ease: Cubic.easeInOut}, blinkStage.label);
+      timeline.to(this.line07.nativeElement, 0.1, { attr: {d:paths.line07morph[blinkStage.visualIndex]}, ease: Cubic.easeInOut}, blinkStage.label);
     });
 
     if(repeat) {
@@ -61,7 +64,9 @@ export class VisualDragonComponent {
     let delay = repeat ? (Math.random() * 5) + 8 : 2;
     let timeline = new TimelineLite();
     timeline.delay(delay);
-    let smokeWispVisuals = this.visualDragonService.smokeWispVisuals[wispIndex];
+    let smokeWisps = this.layoutService.getOrientation()==='landscape' ?
+      this.visualDragonService.smokeWispsLandscape[wispIndex] :
+      this.visualDragonService.smokeWispsPortrait[wispIndex];
     let smokeElement:ElementRef;
     switch(wispIndex) {
       case 0:
@@ -77,7 +82,7 @@ export class VisualDragonComponent {
 
     this.visualDragonService.smokeSeries.forEach((smokeStage,index) => {
       timeline.to(smokeElement.nativeElement, 0.02+index/20, { attr: {
-        d:smokeWispVisuals[smokeStage.visualIndex],
+        d:smokeWisps[smokeStage.visualIndex],
         opacity:smokeStage.opacity,
       }, 
       ease: Cubic.easeInOut}, smokeStage.label);
