@@ -31,14 +31,14 @@
     <br>
     <span id="target-business" class="large-text">We mean business.</span>
     <div class="image" *ngIf="contentFlags.army" [@fadeIn] (click)="toggleContentAndScroll('army', 'target-army', $event)">
-      <img class="army" src="/assets/images/Army.svg" alt="Army">
+      <img class="army" src="/assets/images/Army.svg" alt="Army" [ngClass]="layoutService.getOrientation()==='landscape' ? 'landscape' : 'portrait'">
     </div>
     <span *ngIf="contentFlags.army" [@fadeIn]>We will bring <a href="#" (click)="toggleContentAndScroll('banana', 'target-business', $event)">World Peace!</a></span>
     <br>
 
     <!-- World Peace (banana) -->
     <div class="image" *ngIf="contentFlags.banana" [@fadeIn] (click)="toggleContentAndScroll('banana', 'target-business', $event)">
-      <img class="banana" src="/assets/images/BananaMissile.svg" alt="Banana"><br>
+      <img class="banana" src="/assets/images/BananaMissile.svg" alt="Banana" [ngClass]="layoutService.getOrientation()==='landscape' ? 'landscape' : 'portrait'"><br>
       <span class="small-text">(If wars looked like this, World Peace would come much, much sooner.)<br><br></span>
     </div>
 

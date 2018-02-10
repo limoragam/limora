@@ -49,12 +49,20 @@ img.photo {
     height: 25vh;
 }
 
-.army {
+.army.landscape {
     height: 40vh;
 }
 
-.banana {
+.army.portrait {
+    width: 76vw;    
+}
+
+.banana.landscape {
     height: 55vh;
+}
+
+.banana.portrait {
+    width: 76vw;
 }
 
 .wrapper-about {
