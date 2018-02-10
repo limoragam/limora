@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { trigger, transition, style, animate, state } from '@angular/animations';
 import { TweenLite, Cubic, TimelineLite } from 'gsap';
 import { VisualMushroomComponent } from './../../visuals/visual-mushroom/visual-mushroom.component';
@@ -33,14 +33,26 @@ export class LayoutComponent {
   @ViewChild(VisualMushroomComponent) visualMushroomComponent:VisualMushroomComponent;
   @ViewChild(AboutComponent) aboutComponent:AboutComponent;
   mushroomStyle = this.layoutService.getOrientation()==='landscape' ? 
-    {'bottom':'5vh', 'left':0} : {'bottom':'7vh', 'right':0};
-  continueAnimatingMushroom = false;
+    {'bottom':'5vh', 'left':0} : {'bottom':0, 'right':0};
+  mushroomAnimationState = 'pending';
+  showIntroducing = true;
 
   constructor(public layoutService:LayoutService) { }
 
   ngAfterViewInit() {
     this.aboutComponent.show = false;
-    this.animateImages();
+    let introducing = $('.introducing');
+    let timeline = new TimelineLite({ delay: 0.5, ease: Cubic.easeInOut });
+    timeline.to(introducing, 0.4, {opacity:1})
+      .to(introducing, 0.7, {opacity:0}, "+=2");
+    timeline.call(()=>{
+      this.animateImages();
+    })
+  }
+
+  onResize(event:Event) {
+    this.layoutService.onResize(event);
+    this.setMushroomPosition();
   }
 
   animateImages() {
@@ -55,7 +67,9 @@ export class LayoutComponent {
       if (i === images.length - 1) {
         tl.call(()=>{
           this.visualDragonComponent.doAnimation();
-          this.continueAnimatingMushroom = true;
+          if(this.mushroomAnimationState==='pending') {
+            this.mushroomAnimationState = 'go';
+          }
           this.animateMushroom();
         });
       } else {
@@ -65,23 +79,31 @@ export class LayoutComponent {
   }
 
   animateMushroom() {
-    if(!this.continueAnimatingMushroom) {
+    if(this.mushroomAnimationState!=='go') {
       return;
     }
 
-    let delay = (Math.random()/2 + 0.7) * 10000;
+    let delay = (Math.random()*5 + 3);
 
-    this.mushroomStyle['transform'] = "scale(1.1) translateY(-0.3em)";
-    setTimeout(()=>{
-      this.mushroomStyle['transform'] = "scale(1) translateY(0)";
-      setTimeout(()=>{
-        this.animateMushroom();
-      },delay);
-    },300);
+    let mushroom = $('.mushroom');
+    let click = $('.click');
+    let timeline = new TimelineLite({ delay: delay, ease: Cubic.easeInOut });
+    timeline.to(mushroom, 0.2, {scaleY:1.15, scaleX:1.05, y:-10})
+      .to(mushroom, 0.1, {scale:1, y:0}, "+=0.2")
+      .to(click, 0.2, {opacity:1})
+      .to(click, 0.6, {opacity:0}, "+=0.8");
+    timeline.call(()=>{
+      this.animateMushroom();
+    })
   }
 
   onMushroomClick() {
-    this.aboutComponent.show = true
-    this.continueAnimatingMushroom = false;
+    this.aboutComponent.show ? this.aboutComponent.hide() : this.aboutComponent.show = true;
+    this.mushroomAnimationState = 'stop';
+  }
+
+  setMushroomPosition() {
+    this.mushroomStyle = this.layoutService.getOrientation()==='landscape' ? 
+      {'bottom':'5vh', 'left':0} : {bottom:0, 'right':0};
   }
 }

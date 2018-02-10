@@ -2,8 +2,8 @@ export class LayoutService {
     originalMainVisualHeight = 710;
     originalMainVisualWidth = 840;
     visualsPercentage = 1;
-    mainVisualHeight = "95vh";
-    mainVisualWidth = "95vw";
+    mainVisualHeight = "93vh";
+    mainVisualWidth = null;
 
     svgs = this.getOrientation()==='landscape' ? 
     [
@@ -22,24 +22,21 @@ export class LayoutService {
         this.setVisualsPercentage();
     }
 
-    getMedia():string {
-        return (window.matchMedia("(max-width: 680px)").matches) ? 'narrow' : 'wide';
-    }
-
     getOrientation() {
         return window.innerWidth > window.innerHeight ? "landscape" : "portrait";
     }
 
-    getMaxWidth():number {
-        if(this.getMedia()==='wide') {
-            return 630;
-        }
-        return window.innerWidth - 20;
+    getMainVisualHeight() {
+        return (this.getOrientation()==="landscape") ? window.innerHeight*0.93 : null;
+    }
+
+    getMainVisualWidth() {
+        return (this.getOrientation()==="portrait") ? window.innerWidth*0.9 : null;
     }
 
     setMainVisualDimensions() {
-        this.mainVisualHeight = this.getOrientation()==="landscape" ? "95vh" : null;
-        this.mainVisualWidth = this.getOrientation()==="portrait" ? "95vw" : null;
+        this.mainVisualHeight = this.getOrientation()==="landscape" ? "93vh" : null;
+        this.mainVisualWidth = this.getOrientation()==="portrait" ? "90vw" : null;
     }
 
     setVisualsPercentage() {
@@ -51,6 +48,12 @@ export class LayoutService {
                 this.visualsPercentage = (window.innerHeight * 0.95) / this.originalMainVisualHeight : 
                 this.visualsPercentage = (window.innerWidth * 0.95) / this.originalMainVisualWidth;
         }
+    }
+
+    getBackgroundDominantDimension() {
+        let originalBackgroundWidth = 1920;
+        let originalBackgroundHeight = 950;
+        return originalBackgroundWidth/window.innerWidth < originalBackgroundHeight/window.innerHeight ? 'width':'height';
     }
 
     onResize(event:Event) {

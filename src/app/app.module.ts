@@ -15,7 +15,6 @@ import { VisualMushroomComponent } from './visuals/visual-mushroom/visual-mushro
 
 import { LayoutService } from './layout/layout.service';
 
-import { SafeUrlPipe } from './common/safe-url.pipe';
 import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
@@ -27,7 +26,6 @@ import { ContactComponent } from './contact/contact.component';
     VisualLimoragamComponent,
     VisualDragonComponent,
     VisualMushroomComponent,
-    SafeUrlPipe,
     ContactComponent,
   ],
   imports: [

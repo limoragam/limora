@@ -21,12 +21,40 @@
     cursor: default;
 }
 
-.pic {
+.image {
+    cursor: pointer;
+}
+
+.limoragam {
+    height: 30vh;
+}
+
+div.self-portrait {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin:0 auto;
+}
+
+img.selfportrait {
+    height: 30vh;
+}
+
+img.photo {
     height: 20vh;
+    margin: 5vh auto;
 }
 
 .silliness {
     height: 25vh;
+}
+
+.army {
+    height: 40vh;
+}
+
+.banana {
+    height: 55vh;
 }
 
 .wrapper-about {
@@ -36,7 +64,7 @@
     border-radius: 1em;
     padding: 1em;
     background-color: rgb(240,240,240);
-    height: 75vh;
+    height: 76vh;
     overflow-y: auto;
     position: relative;
     transition: opacity 400ms ease-in-out;
@@ -48,4 +76,8 @@
 
 .large-text {
     font-size: 1.5em;
+}
+
+.small-text {
+    font-size: 0.8em;
 }

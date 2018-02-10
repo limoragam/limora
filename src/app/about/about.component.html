@@ -1,42 +1,74 @@
-<div class="wrapper-about" [ngStyle]="{'opacity': show ? 1:0}">
-  <!-- <svg 
-    class="about" 
-    xmlns="http://www.w3.org/2000/svg" 
-    viewBox="0 0 37.041668 15.875" 
-    [attr.height]="aboutHeight" 
-    >
-    <g fill="#333">
-        <path d="M.38 11.791c1.11-2.33 1.706-4.864 2.438-7.329.385-1.24.393-2.772.615-3.895.978.097 1.745.274 1.514 1.417.326 2.807.707 5.614 1.376 8.362-.187.47-2.426.154-1.025-.417.989-.376 1.432.93.27.965-1.34.115-.738-1.782-1.138-2.618-.407-2.384-.696-4.786-1.096-7.171.172-.394 2.015-1.14 1.477.084-.334 3.057-1.364 5.97-2.195 8.914-.472.774-.363 2.568-1.612 2.283C.747 12.3.32 12.137.38 11.79z"/>
-        <path d="M3.314 7.996c.186.039 1.51.018.77.01 1.267-.517 1.838 1.888.174 1.323-.828.087-2.499.152-1.497-1.083.123-.155.339-.352.553-.25zM8.794 3.901c-.015 1.915.29 3.826.69 5.69-.174-1.231-1.76.691-1.49-.816-.382-1.59-1.016-3.22-.733-4.875.427-1.507 2.482-2.249 3.745-1.33 1.054 1.25-.05 2.83-.773 3.94.01-1.014 1.772.204 2.522.17 1.26.153 2.257 1.702 1.104 2.672-.85.864-1.99 1.342-2.993 1.996-.809.102-1.206-1.562-.552-1.338.655-.488 2.76-1.067 2.343-1.887-1.17-.806-3.226-.223-3.894-1.631.118-.964 1.64-2.66 1.026-2.963.803-.136-1.553.105-1.126 1.08-.04 1.751.923 3.36.915 5.099-.59.954-1.953.756-1.713-.6-.277-1.716-.403-3.451-.578-5.18.14-.56 1.347-.581 1.507-.027zM17.813 4.607c-.634 1.303-1.297 2.868-.753 4.307.182.717 1.87.816 1.189.544 1.234-.296 1.707-1.873 1.513-2.999-.123-.762-.73-1.702-1.603-1.595 1.013-.232-.153.475-.414.804-2.348.064-.186-2.772 1.212-2.071 2.06.57 2.726 3.24 1.967 5.049-.48 1.317-1.791 2.418-3.255 2.158-1.66-.143-2.491-2.02-2.198-3.51.352-1.067.312-3.867 2-3.188.171.095.408.265.342.5zM24.106 5.115c-.427 1.384-.325 3.256 1.102 4.017.412.347 1.803.469 1.078.198 1.256-.716.779-2.526.342-3.647-.661-.964-.333-2.594 1.094-1.748.339 1.763 1.275 3.661.441 5.446-.504 1.45-2.35 1.622-3.534.938-1.77-.853-2.447-3.004-2.08-4.839-.299-1.088 1.32-1.155 1.557-.365zM32.22 4.27c.002 1.789.715 3.478 1.512 5.047-.395 1.255-1.845.552-1.852-.549-.59-1.424-1.01-2.924-1.165-4.46.137-.56 1.341-.59 1.506-.039z"/>
-        <path d="M29.404 4.106c1.815-.253 3.65-.138 5.476-.149.669 1.625-1.8 1.256-2.36 1.206-1.124-.201-3.13.916-3.223-.906l.107-.151z"/>
-        <path d="M.31 14.373c2.175-.232 4.358-.435 6.543-.559 4.912-.007 9.83-.194 14.738.02 3.07.025 6.142.206 9.213.173-.43-.005 1.358.013 1.85-.106 1.248-.097 2.38-.65 3.586-.93 1.035.427.557 1.37-.43 1.224-2.783 1.126-5.84.791-8.768.752-3.12-.11-6.24-.147-9.36-.254-3.963.038-7.93-.08-11.89.125-1.655.209-3.327.297-4.976.54-.34-.078-.787-.664-.506-.985z" fill="#c87137"/>
-    </g>
-  </svg> -->
-
-  <app-visual-x (clicked)="show=false" [show]="show" [positionTop]="'2.5em'" [positionRight]="'3.5em'"></app-visual-x>
+<div class="wrapper-about" [ngStyle]="{'opacity': show ? 1:0}" (window:resize)="onResize($event)">
+  <app-visual-x (clicked)="hide()" [show]="show" [positionTop]="'2.5em'" [positionRight]="'3.5em'"></app-visual-x>
 
   <div class="content">
-    <p>
-      <span class="large-text">My name is <b>Limor&nbsp;Agam</b>.</span><br>
-      <!-- <app-visual-mushroom [show]="true"></app-visual-mushroom><p> -->
-      <img class="pic" src="/assets/images/portrait01bw.jpg" alt="Limor Agam"><br>
-      My deepest mission is promoting silliness all over the world.<br>
-      <img class="silliness" src="/assets/images/Silliness.svg" alt="Silliness"><br>
-      And I have an army of lines and colors to help me out.<br>
-      <span class="large-text">We mean business.</span><br>
-      We will attack anything:<br>
-      Websites<br>
-      Books<br>
-      Plates<br>
-      Napkins<br>
-      Pyjamas<br>
-      Greeting cards<br>
-      Even unsuspecting walls.<br>
-      If you see someone or something that needs cheering up, we are at your service.<br>
-      <span class="large-text">Be on our side. Call us:</span><br>
-    </p>
+    <span id="target-greetings" class="large-text">Greetings, You.</span>
+    <br>
+
+    <!-- Limor Agam -->
+    My name is <b><a href="#" (click)="toggleContentAndScroll('selfPortrait', 'target-greetings', $event)">Limor&nbsp;Agam</a></b>.
+    <br>
+    <div class="image limoragam" *ngIf="contentFlags.selfPortrait">
+      <div class="self-portrait" *ngIf="contentFlags.selfPortrait && !showPhoto" [@fadeIn]>
+        <a href="#" (click)="peekAtPhoto()">
+          <img class="selfportrait" src="/assets/images/SelfPortrait.svg" alt="Self Portrait">
+        </a>
+      </div>
+      <div class="self-portrait" *ngIf="showPhoto" [@fadeIn]>
+        <img class="photo" src="/assets/images/portrait01bw.jpg" alt="Limor Agam">
+      </div>
+    </div>
+
+    <!-- Silliness -->
+    <span id="target-silliness">My mission is to promote <a href="#" (click)="toggleContentAndScroll('silliness', 'target-silliness', $event)">silliness</a> and happiness all over the world.</span>
+    <br>
+    <div class="image" *ngIf="contentFlags.silliness" [@fadeIn] (click)="toggleContentAndScroll('silliness', 'target-silliness', $event)">
+      <img class="silliness" src="/assets/images/Silliness.svg" alt="Silliness">
+    </div>
+
+    <!-- Army -->
+    <span id="target-army">I have a professional <a href="#" (click)="toggleContentAndScroll('army', 'target-army', $event)">army</a> to help me out.</span>
+    <br>
+    <span id="target-business" class="large-text">We mean business.</span>
+    <div class="image" *ngIf="contentFlags.army" [@fadeIn] (click)="toggleContentAndScroll('army', 'target-army', $event)">
+      <img class="army" src="/assets/images/Army.svg" alt="Army">
+    </div>
+    <span *ngIf="contentFlags.army" [@fadeIn]>We will bring <a href="#" (click)="toggleContentAndScroll('banana', 'target-business', $event)">World Peace!</a></span>
+    <br>
+
+    <!-- World Peace (banana) -->
+    <div class="image" *ngIf="contentFlags.banana" [@fadeIn] (click)="toggleContentAndScroll('banana', 'target-business', $event)">
+      <img class="banana" src="/assets/images/BananaMissile.svg" alt="Banana"><br>
+      <span class="small-text">(If wars looked like this, World Peace would come much, much sooner.)<br><br></span>
+    </div>
+
+    <!-- Attack -->
+    We will attack anything:
+    <br>
+    Websites
+    <br>
+    Books
+    <br>
+    Plates
+    <br>
+    Napkins
+    <br>
+    Pyjamas
+    <br>
+    Greeting cards
+    <br>
+    Even unsuspecting walls.
+    <br>
+    If you see someone or something that needs cheering up, we are at your service.
+    <br>
+    <span class="large-text">Be on our side. Call us:</span>
+    <br>
     <app-contact></app-contact>
     <br>
   </div>
-  <a href="https://www.linkedin.com/in/limoragam" target="_blank"><img src="/assets/images/Frog.svg" alt="Frog"></a>
+
+  <!-- Frog -->
+  <a href="https://www.linkedin.com/in/limoragam" target="_blank">
+    <img src="/assets/images/Frog.svg" alt="Frog">
+  </a>
 </div>

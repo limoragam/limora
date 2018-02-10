@@ -23,6 +23,5 @@ export class VisualXComponent implements OnInit {
   onClick() {
     this.show = false;
     this.clicked.emit();
-    console.log("here");
   }
 }
