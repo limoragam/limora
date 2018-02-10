@@ -2,8 +2,8 @@ export class LayoutService {
     originalMainVisualHeight = 710;
     originalMainVisualWidth = 840;
     visualsPercentage = 1;
-    mainVisualHeight = "93vh";
-    mainVisualWidth = null;
+    mainVisualHeight = this.getMainVisualHeight() + "px";;
+    mainVisualWidth = this.getMainVisualWidth() + "px";;
 
     svgs = this.getOrientation()==='landscape' ? 
     [
@@ -18,7 +18,6 @@ export class LayoutService {
     ]
 
     constructor() {
-        this.setMainVisualDimensions();
         this.setVisualsPercentage();
     }
 
@@ -27,16 +26,11 @@ export class LayoutService {
     }
 
     getMainVisualHeight() {
-        return (this.getOrientation()==="landscape") ? window.innerHeight*0.93 : null;
+        return (this.getOrientation()==="landscape") ? window.innerHeight*0.93 : window.innerHeight*0.85;
     }
 
     getMainVisualWidth() {
-        return (this.getOrientation()==="portrait") ? window.innerWidth*0.9 : null;
-    }
-
-    setMainVisualDimensions() {
-        this.mainVisualHeight = this.getOrientation()==="landscape" ? "93vh" : null;
-        this.mainVisualWidth = this.getOrientation()==="portrait" ? "90vw" : null;
+        return null;
     }
 
     setVisualsPercentage() {
@@ -57,7 +51,6 @@ export class LayoutService {
     }
 
     onResize(event:Event) {
-        this.setMainVisualDimensions();
         this.setVisualsPercentage();
     }
 }
