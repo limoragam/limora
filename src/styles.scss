@@ -3,7 +3,6 @@
 
 * {
     // border: solid 1px red;
-//    font-family: 'Overlock', sans-serif;
     font-family: 'Love Ya Like A Sister', cursive;
     color: $text-color;
 }
@@ -23,14 +22,14 @@ body {
 }
 
 a {
-    color: $hover-color;
+    color: $link-color;
     text-decoration: none;
 }
 
 a:hover, a.active {
     background-color: transparent;
     text-decoration: none;
-    font-weight: 700;
+    font-weight: 600;
     color: $hover-color;
 }
 

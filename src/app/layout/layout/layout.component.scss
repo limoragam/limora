@@ -9,6 +9,9 @@
     position: relative;
     text-align: center;
     overflow: hidden;
+    background-image: url("/assets/images/background.svg");
+    background-size: 100% auto;
+    background-repeat: no-repeat;
 }
 
 .fullwidth-wrapper {
@@ -16,28 +19,49 @@
     top: 0;
     left: 0;
     width: 100vw;
-//    border: 1px solid blue;
 }
 
 .dynamic {
     transform: translateX(100vw);
 }
 
-.partialwidth-wrapper {
+.introducing {
+    font-size: 5em;
+    opacity: 0;
+}
+
+.limoragam {
+    height: 100vh;
+}
+
+h3 {
+    font-weight: normal;
+}
+
+.items {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin:0 auto;
+}
+
+app-contact {
+    z-index: 21;
+}
+
+.about-wrapper {
     position: absolute;
     top: 0;
     left: 0;
     padding: 2em;
     width: 100vw;
-    min-height: 100vh;
-//    border: 1px solid green;
 }
 
 .mushroom {
     position: absolute;
-    margin: 2em 0.5em;
+    margin: 0 0.5em;
     cursor: pointer;
     z-index: 20;
     transition: all 200ms ease-in-out;
-    //    border: 1px solid green;
 }

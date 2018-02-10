@@ -1,4 +1,18 @@
-<div class="wrapper" (window:resize)="layoutService.onResize($event)">
+<div 
+  class="wrapper" 
+  [ngStyle]="{'background-size':layoutService.getBackgroundDominantDimension()==='width' ? '100% auto':'auto 100%'}" 
+  (window:resize)="onResize($event)"
+  [@fadeIn]
+  >
+  <div 
+    class="fullwidth-wrapper static introducing" 
+    [ngStyle]="{'font-size':layoutService.getOrientation()==='landscape' ? '5em':'2em'}"
+    >
+    <br>Introducing
+    <br>the
+    <br>Blue-Footed Booby
+  </div>
+
   <div class="fullwidth-wrapper dynamic" *ngFor="let svg of layoutService.svgs" >
     <img 
       class="mainImage"
@@ -8,16 +22,22 @@
       >
   </div>
 
-  <div class="fullwidth-wrapper dynamic">
+  <div class="fullwidth-wrapper dynamic dragon">
     <app-visual-dragon></app-visual-dragon>
   </div>
-  <div class="fullwidth-wrapper static" [@fadeIn]>
-    <app-visual-limoragam></app-visual-limoragam>
+  
+  <div class="fullwidth-wrapper static limoragam" [@fadeIn]>
+    <div class="items">
+      <div class="mushroom" [@fadeIn] [ngStyle]="mushroomStyle">
+        <app-visual-mushroom (click)="onMushroomClick()"></app-visual-mushroom>
+      </div>
+      <app-visual-limoragam></app-visual-limoragam>
+      <h3>Minimalistic Optimistic Humoristic Visuals & Design</h3>
+      <app-contact></app-contact>
+    </div>
   </div>
-  <div class="mushroom" [@fadeIn] [ngStyle]="mushroomStyle">
-    <app-visual-mushroom (click)="onMushroomClick()"></app-visual-mushroom>
-  </div>
-  <div class="partialwidth-wrapper">
+
+  <div class="about-wrapper">
     <app-about></app-about>
   </div>
 </div>

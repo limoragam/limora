@@ -1,5 +1,44 @@
+@import "../commonStyles.scss";
+
 .icon {
     height: 2em;
     vertical-align: top;
     margin: 0.1em;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    line-height: 1em;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    font-size: 0.9em;
+    background-color: $background-color;
+    color: $text-color;
+    text-align: center;
+    border-radius: 0.2em;
+    padding: 0.2em 0.3em;
+    white-space: nowrap;
+    box-shadow: 0px 0px 4px #222;
+
+    /* Position the tooltip */
+    position: absolute;
+    bottom: 115%;
+    z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.tooltip .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    top: 100%; /* At the bottom of the tooltip */
+    left: 1em;
+    border-width: 5px;
+    border-style: solid;
+    border-color: $text-color transparent transparent transparent;
 }
