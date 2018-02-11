@@ -6,19 +6,18 @@
   >
   <div 
     class="fullwidth-wrapper static introducing" 
-    [ngStyle]="{'font-size':layoutService.getOrientation()==='landscape' ? '5em':'2em'}"
+    [ngStyle]="{'font-size':layoutService.getOrientation()==='landscape' ? '3em':'2em'}"
     >
     <br>Introducing
     <br>the
     <br>Blue-Footed Booby
   </div>
 
-  <div class="fullwidth-wrapper dynamic" *ngFor="let svg of layoutService.svgs" >
+  <div class="fullwidth-wrapper dynamic booby" *ngFor="let svg of layoutService.svgs" >
     <img 
       class="mainImage"
       [src]="svg" alt="See My Feet?" 
-      [style.width]="layoutService.mainVisualWidth" 
-      [style.height]="layoutService.mainVisualHeight"
+      [style.height]="layoutService.getMainVisualHeightPx()"
       >
   </div>
 
@@ -32,7 +31,7 @@
         <app-visual-mushroom (click)="onMushroomClick()"></app-visual-mushroom>
       </div>
       <app-visual-limoragam></app-visual-limoragam>
-      <h3>Minimalistic Optimistic Humoristic Visuals & Design</h3>
+      <h3>Minimalistic Optimistic Humoristic Visuals&nbsp;&amp;&nbsp;Design</h3>
       <app-contact></app-contact>
     </div>
   </div>

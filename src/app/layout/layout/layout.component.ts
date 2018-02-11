@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, ViewChild, ViewChildren, ElementRef, QueryList } from '@angular/core';
 import { trigger, transition, style, animate, state } from '@angular/animations';
 import { TweenLite, Cubic, TimelineLite } from 'gsap';
 import { VisualMushroomComponent } from './../../visuals/visual-mushroom/visual-mushroom.component';
@@ -28,18 +28,23 @@ import { LayoutService } from './../layout.service';
     ]),
   ]
 })
-export class LayoutComponent {
+export class LayoutComponent implements AfterViewInit {
   @ViewChild(VisualDragonComponent) visualDragonComponent:VisualDragonComponent;
   @ViewChild(VisualMushroomComponent) visualMushroomComponent:VisualMushroomComponent;
   @ViewChild(AboutComponent) aboutComponent:AboutComponent;
+
   mushroomStyle = this.layoutService.getOrientation()==='landscape' ? 
     {'bottom':'5vh', 'left':0} : {'bottom':0, 'right':0};
-  mushroomAnimationState = 'pending';
+  flowState = 'pending';  // pending, slide-in, mushroom, stop
   showIntroducing = true;
 
   constructor(public layoutService:LayoutService) { }
 
   ngAfterViewInit() {
+    window.addEventListener("orientationchange", ()=>{
+      this.resetLayout();
+    }, false);
+
     this.aboutComponent.show = false;
     let introducing = $('.introducing');
     let timeline = new TimelineLite({ delay: 0.5, ease: Cubic.easeInOut });
@@ -51,8 +56,25 @@ export class LayoutComponent {
   }
 
   onResize(event:Event) {
-    this.layoutService.onResize(event);
+    this.resetLayout();
+  }
+
+  resetLayout() {
     this.setMushroomPosition();
+    this.setImagesPosition();
+  }
+
+  setMushroomPosition() {
+    this.mushroomStyle = this.layoutService.getOrientation()==='landscape' ? 
+      {'bottom':'5vh', 'left':0} : {bottom:0, 'right':0};
+  }
+
+  setImagesPosition() {
+    if(this.flowState==='mushroom' || this.flowState==='stop') {
+      let windowWidth =  window.innerWidth;
+      let xPosition = (this.layoutService.getOrientation()==='landscape') ? windowWidth * -1 : windowWidth * -2;
+      $(".booby").css('transform', 'translateX('+ xPosition +'px)');
+    }
   }
 
   animateImages() {
@@ -61,14 +83,15 @@ export class LayoutComponent {
     let slideoutDelay = "+=" + delay;
     let wrapperWidth = $(".wrapper").width() * -1;
     let images = $(".dynamic");
+    this.flowState = 'slide-in';
     for (let i = 0; i < images.length; i++) {
       let tl = new TimelineLite({ delay: i * duration, ease: Cubic.easeInOut });
       tl.to(images[i], duration, { x: 0 });
       if (i === images.length - 1) {
         tl.call(()=>{
           this.visualDragonComponent.doAnimation();
-          if(this.mushroomAnimationState==='pending') {
-            this.mushroomAnimationState = 'go';
+          if(this.flowState==='slide-in') {
+            this.flowState = 'mushroom';
           }
           this.animateMushroom();
         });
@@ -79,7 +102,7 @@ export class LayoutComponent {
   }
 
   animateMushroom() {
-    if(this.mushroomAnimationState!=='go') {
+    if(this.flowState!=='mushroom') {
       return;
     }
 
@@ -99,11 +122,6 @@ export class LayoutComponent {
 
   onMushroomClick() {
     this.aboutComponent.show ? this.aboutComponent.hide() : this.aboutComponent.show = true;
-    this.mushroomAnimationState = 'stop';
-  }
-
-  setMushroomPosition() {
-    this.mushroomStyle = this.layoutService.getOrientation()==='landscape' ? 
-      {'bottom':'5vh', 'left':0} : {bottom:0, 'right':0};
+    this.flowState = 'stop';
   }
 }

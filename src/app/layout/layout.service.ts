@@ -1,9 +1,10 @@
 export class LayoutService {
-    originalMainVisualHeight = 710;
-    originalMainVisualWidth = 840;
-    visualsPercentage = 1;
-    mainVisualHeight = this.getMainVisualHeight() + "px";;
-    mainVisualWidth = this.getMainVisualWidth() + "px";;
+    originalMainVisualHeightLandscape = 710;
+    originalMainVisualWidthLandscape = 840;
+    originalMainVisualHeightPortrait = 680;
+    originalMainVisualWidthPortrait = 390;
+    percentHeightForMainVisualLandscape = 0.93;
+    percentHeightForMainVisualPortrait = 0.85;
 
     svgs = this.getOrientation()==='landscape' ? 
     [
@@ -18,7 +19,6 @@ export class LayoutService {
     ]
 
     constructor() {
-        this.setVisualsPercentage();
     }
 
     getOrientation() {
@@ -26,31 +26,33 @@ export class LayoutService {
     }
 
     getMainVisualHeight() {
-        return (this.getOrientation()==="landscape") ? window.innerHeight*0.93 : window.innerHeight*0.85;
+        return (this.getOrientation()==="landscape") ? 
+            window.innerHeight*this.percentHeightForMainVisualLandscape : 
+            window.innerHeight*this.percentHeightForMainVisualPortrait;
     }
 
-    getMainVisualWidth() {
-        return null;
+    getMainVisualHeightPx() {
+        let height = this.getMainVisualHeight();
+        return (height===null) ? null : height + 'px';
     }
 
-    setVisualsPercentage() {
-        let currentMainVisualWidth = $(".mainImage").width();
-        if(currentMainVisualWidth>0) {
-            this.visualsPercentage = currentMainVisualWidth/this.originalMainVisualWidth;
-        } else {
-            this.visualsPercentage = this.getOrientation()==="landscape" ? 
-                this.visualsPercentage = (window.innerHeight * 0.95) / this.originalMainVisualHeight : 
-                this.visualsPercentage = (window.innerWidth * 0.95) / this.originalMainVisualWidth;
+    getVisualsPercentage():number {
+        let currentMainVisualHeight = $(".mainImage").height();
+        if(!(currentMainVisualHeight>0)) {
+            currentMainVisualHeight = this.getOrientation()==='landscape' ?
+                window.innerHeight*this.percentHeightForMainVisualLandscape :
+                window.innerHeight*this.percentHeightForMainVisualPortrait;
         }
+
+        let originalHeight = this.getOrientation()==='landscape' ? 
+            this.originalMainVisualHeightLandscape : this.originalMainVisualHeightPortrait;
+
+        return currentMainVisualHeight/originalHeight;
     }
 
     getBackgroundDominantDimension() {
         let originalBackgroundWidth = 1920;
         let originalBackgroundHeight = 950;
         return originalBackgroundWidth/window.innerWidth < originalBackgroundHeight/window.innerHeight ? 'width':'height';
-    }
-
-    onResize(event:Event) {
-        this.setVisualsPercentage();
     }
 }
