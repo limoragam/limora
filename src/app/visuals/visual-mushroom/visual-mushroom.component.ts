@@ -7,13 +7,27 @@ import { LayoutService } from '../../layout/layout.service';
   styleUrls: ['./visual-mushroom.component.scss']
 })
 export class VisualMushroomComponent {
-  @Input() show = false;
-  width = 140 * this.layoutService.visualsPercentage;
-  // height = null;// "" + 105 * this.layoutService.visualsPercentage + "px";
+  width = 140 * this.layoutService.getVisualsPercentage();
 
   constructor(private layoutService:LayoutService) {}
 
+  ngAfterViewInit() {
+    window.addEventListener("orientationchange", ()=>{
+      this.setWidth();
+    }, false);
+  }
+
   onResize() {
-    this.width = 140 * this.layoutService.visualsPercentage;
+    this.setWidth();
+  }
+
+  setWidth() {
+    this.width = 140 * this.layoutService.getVisualsPercentage();
+  }
+
+  getWidth():number {
+    return (this.layoutService.getOrientation()==='landscape') ?
+      140 * this.layoutService.getVisualsPercentage() :
+      100 * this.layoutService.getVisualsPercentage();
   }
 }
