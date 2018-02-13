@@ -1,0 +1,19 @@
+{
+    "name": "Limor Agam",
+    "short_name": "Limor Agam",
+    "icons": [
+        {
+            "src": "/android-chrome-192x192.png?v=Gvkgnr6RPb",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/android-chrome-384x384.png?v=Gvkgnr6RPb",
+            "sizes": "384x384",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#ccdde2",
+    "background_color": "#ccdde2",
+    "display": "standalone"
+}
