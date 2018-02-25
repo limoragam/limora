@@ -1,10 +1,10 @@
 export class LayoutService {
-    originalMainVisualHeightLandscape = 710;
-    originalMainVisualWidthLandscape = 840;
-    originalMainVisualHeightPortrait = 680;
+    originalMainVisualHeightLandscape = 640;
+    originalMainVisualWidthLandscape = 560;
+    originalMainVisualHeightPortrait = 640;
     originalMainVisualWidthPortrait = 390;
-    percentHeightForMainVisualLandscape = 0.93;
-    percentHeightForMainVisualPortrait = 0.85;
+    percentHeightForMainVisualLandscape = 0.98;
+    percentHeightForMainVisualPortrait = 0.98;
 
     svgs = this.getOrientation()==='landscape' ? 
     [
@@ -27,8 +27,8 @@ export class LayoutService {
 
     getMainVisualHeight() {
         return (this.getOrientation()==="landscape") ? 
-            window.innerHeight*this.percentHeightForMainVisualLandscape : 
-            window.innerHeight*this.percentHeightForMainVisualPortrait;
+            $(".wrapper").innerHeight()*this.percentHeightForMainVisualLandscape : 
+            $(".wrapper").innerHeight()*this.percentHeightForMainVisualPortrait;
     }
 
     getMainVisualHeightPx() {
