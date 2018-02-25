@@ -29,11 +29,11 @@ export class AboutComponent implements AfterViewInit {
   showPhoto = false;
   
   contentFlags = {
-    selfPortrait:false,
-    photo:false,
-    silliness:false,
-    army:false,
-    banana:false,
+    selfPortrait:true,
+    photo:true,
+    silliness:true,
+    army:true,
+    banana:true,
   }
 
   scrollTargetOffsets = [];
@@ -69,44 +69,10 @@ export class AboutComponent implements AfterViewInit {
     }
   }
 
-  toggleContentAndScroll(contentFlag:string, scrollTarget:string, event:Event) {
-    this.toggleContent(contentFlag);
-    this.scrollToTarget(scrollTarget, event);
-    return false;
-  }
-
-  toggleContent(contentFlagToToggle:string) {
-    for(let contentFlag in this.contentFlags){
-      if(contentFlag===contentFlagToToggle) {
-        this.contentFlags[contentFlagToToggle] = this.contentFlags[contentFlagToToggle] ? false : true;
-      } else {
-        this.contentFlags[contentFlag] = false;
-      }
-    }    
-  }
-
-  scrollToTarget(targetId:string, event:Event) {
-    event.preventDefault();
-    if(targetId in this.scrollTargetOffsets) {
-      let targetOffset = this.scrollTargetOffsets[targetId] > this.paddingFromTargetWindowTop ? 
-                         this.scrollTargetOffsets[targetId] - this.paddingFromTargetWindowTop : 0;
-      $(".wrapper-about").animate({scrollTop:targetOffset},'slow');
-    }
-    else {
-      console.log("entry not recognized");
-    }
-  }
-
-  hide() {
-    for(let contentFlag in this.contentFlags){
-      this.contentFlags[contentFlag] = false;
-    }    
-    this.show = false;
-  }
-
-  peekAtPhoto() {
+  peekAtPhoto(event:Event) {
     this.showPhoto = true;
     setTimeout(()=>{ this.showPhoto=false }, 1000);
+    return false;
   }
 }
 

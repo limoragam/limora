@@ -24,19 +24,18 @@
   <div class="fullwidth-wrapper dynamic dragon">
     <app-visual-dragon></app-visual-dragon>
   </div>
-  
-  <div class="fullwidth-wrapper static limoragam" [@fadeIn]>
-    <div class="items">
-      <div class="mushroom" [@fadeIn] [ngStyle]="mushroomStyle">
-        <app-visual-mushroom (click)="onMushroomClick()"></app-visual-mushroom>
-      </div>
-      <app-visual-limoragam></app-visual-limoragam>
-      <h3>Minimalistic Optimistic Humoristic Visuals&nbsp;&amp;&nbsp;Design</h3>
-      <app-contact></app-contact>
-    </div>
-  </div>
 
-  <div class="about-wrapper">
-    <app-about></app-about>
-  </div>
 </div>
+
+<div class="limoragam" [@fadeIn]>
+  <app-visual-limoragam></app-visual-limoragam>
+  <h3>All-Purpose Optimistic Visuals&nbsp;&amp;&nbsp;Design</h3>
+</div>
+<br>
+
+<app-about id="about"></app-about>
+
+<div class="footer">
+  <app-contact (aboutClicked)="onAboutClicked()"></app-contact>
+</div>
+

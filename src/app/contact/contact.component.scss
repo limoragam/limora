@@ -1,15 +1,20 @@
 @import "../commonStyles.scss";
 
+// * {
+//     border: 1px solid brown;
+// }
+
 .icon {
-    height: 2em;
+    height: 5em;
     vertical-align: top;
-    margin: 0.1em;
+    margin: 0.1em 0;
 }
 
 .tooltip {
     position: relative;
     display: inline-block;
     line-height: 1em;
+    margin: 0 auto;
 }
 
 .tooltip .tooltiptext {
@@ -25,7 +30,7 @@
 
     /* Position the tooltip */
     position: absolute;
-    bottom: 115%;
+    bottom: 102%;
     z-index: 1;
 }
 
@@ -33,6 +38,7 @@
     visibility: visible;
 }
 
+// triangle
 .tooltip .tooltiptext::after {
     content: " ";
     position: absolute;

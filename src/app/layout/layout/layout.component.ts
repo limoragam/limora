@@ -119,9 +119,4 @@ export class LayoutComponent implements AfterViewInit {
       this.animateMushroom();
     })
   }
-
-  onMushroomClick() {
-    this.aboutComponent.show ? this.aboutComponent.hide() : this.aboutComponent.show = true;
-    this.flowState = 'stop';
-  }
 }

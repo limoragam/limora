@@ -1,16 +1,14 @@
-<div class="wrapper-about" [ngStyle]="{'opacity': show ? 1:0}" (window:resize)="onResize($event)">
-  <app-visual-x (clicked)="hide()" [show]="show" [positionTop]="'2.5em'" [positionRight]="'3.5em'"></app-visual-x>
-
+<div class="wrapper-about" (window:resize)="onResize($event)">
   <div class="content">
     <span id="target-greetings" class="large-text">Greetings, You.</span>
     <br>
 
     <!-- Limor Agam -->
-    My name is <b><a href="#" (click)="toggleContentAndScroll('selfPortrait', 'target-greetings', $event)">Limor&nbsp;Agam</a></b>.
+    My name is <b><a href="#" (click)="peekAtPhoto($event)">Limor&nbsp;Agam</a></b>.
     <br>
     <div class="image limoragam" *ngIf="contentFlags.selfPortrait">
       <div class="self-portrait" *ngIf="contentFlags.selfPortrait && !showPhoto" [@fadeIn]>
-        <a href="#" (click)="peekAtPhoto()">
+        <a href="#" (click)="peekAtPhoto($event)">
           <img class="selfportrait" src="/assets/images/SelfPortrait.svg" alt="Self Portrait">
         </a>
       </div>
@@ -20,24 +18,24 @@
     </div>
 
     <!-- Silliness -->
-    <span id="target-silliness">My mission is to promote <a href="#" (click)="toggleContentAndScroll('silliness', 'target-silliness', $event)">silliness</a> and happiness all over the world.</span>
+    <span id="target-silliness">My mission is to promote silliness and happiness all over the world.</span>
     <br>
-    <div class="image" *ngIf="contentFlags.silliness" [@fadeIn] (click)="toggleContentAndScroll('silliness', 'target-silliness', $event)">
+    <div class="image" *ngIf="contentFlags.silliness" [@fadeIn]>
       <img class="silliness" src="/assets/images/Silliness.svg" alt="Silliness">
     </div>
 
     <!-- Army -->
-    <span id="target-army">I have a professional <a href="#" (click)="toggleContentAndScroll('army', 'target-army', $event)">army</a> to help me out.</span>
+    <span id="target-army">I have a professional army to help me out.</span>
     <br>
     <span id="target-business" class="large-text">We mean business.</span>
-    <div class="image" *ngIf="contentFlags.army" [@fadeIn] (click)="toggleContentAndScroll('army', 'target-army', $event)">
+    <div class="image" *ngIf="contentFlags.army" [@fadeIn]>
       <img class="army" src="/assets/images/Army.svg" alt="Army" [ngClass]="layoutService.getOrientation()==='landscape' ? 'landscape' : 'portrait'">
     </div>
-    <span *ngIf="contentFlags.army" [@fadeIn]>We will bring <a href="#" (click)="toggleContentAndScroll('banana', 'target-business', $event)">World Peace!</a></span>
+    <span *ngIf="contentFlags.army" [@fadeIn]>We will bring World Peace!</span>
     <br>
 
     <!-- World Peace (banana) -->
-    <div class="image" *ngIf="contentFlags.banana" [@fadeIn] (click)="toggleContentAndScroll('banana', 'target-business', $event)">
+    <div class="image" *ngIf="contentFlags.banana" [@fadeIn]>
       <img class="banana" src="/assets/images/BananaMissile.svg" alt="Banana" [ngClass]="layoutService.getOrientation()==='landscape' ? 'landscape' : 'portrait'"><br>
       <span class="small-text">(If wars looked like this, World Peace would come much, much sooner.)<br><br></span>
     </div>
@@ -61,14 +59,10 @@
     <br>
     If you see someone or something that needs cheering up, we are at your service.
     <br>
-    <span class="large-text">Be on our side. Call us:</span>
-    <br>
-    <app-contact></app-contact>
+    <span class="large-text">Be on our side.</span>
     <br>
   </div>
 
   <!-- Frog -->
-  <a href="https://www.linkedin.com/in/limoragam" target="_blank">
-    <img src="/assets/images/Frog.svg" alt="Frog">
-  </a>
+  <img src="/assets/images/Frog.svg" alt="Frog">
 </div>

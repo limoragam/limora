@@ -1,3 +1,5 @@
+@import "../../commonStyles.scss";
+
 * {
 //    border: 1px solid pink;
     margin: 0;
@@ -5,10 +7,11 @@
 
 .wrapper {
     padding: 10px 0 0 0;
-    height:100vh;
+    height: 70vh;
     position: relative;
     text-align: center;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
     background-image: url("/assets/images/background.svg");
     background-size: 100% auto;
     background-repeat: no-repeat;
@@ -31,7 +34,8 @@
 }
 
 .limoragam {
-    height: 96vh;
+    width: 100vw;
+    text-align: center;
 }
 
 h3 {
@@ -39,10 +43,6 @@ h3 {
 }
 
 .items {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
     margin:0 auto;
 }
 
@@ -58,10 +58,12 @@ app-contact {
     width: 100vw;
 }
 
-.mushroom {
-    position: absolute;
-    margin: 0 0.5em;
-    cursor: pointer;
-    z-index: 20;
-    transition: all 200ms ease-in-out;
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    text-align: center;
+    background-color: #ececec;
+    border-top: 1px solid $text-color;
 }
