@@ -4,6 +4,9 @@
   (window:resize)="onResize($event)"
   [@fadeIn]
   >
+
+  <div class="fullwidth-wrapper static background" [ngStyle]="{'opacity':backgroundOpacity,'background-image':backgroundImage}"> </div>
+
   <div 
     class="fullwidth-wrapper static introducing" 
     [ngStyle]="{'font-size':layoutService.getOrientation()==='landscape' ? '3em':'2em'}"
@@ -12,6 +15,7 @@
     <br>the
     <br>Blue-Footed Booby
   </div>
+
 
   <div class="fullwidth-wrapper dynamic booby" *ngFor="let svg of layoutService.svgs" >
     <img 
@@ -36,6 +40,6 @@
 <app-about id="about"></app-about>
 
 <div class="footer">
-  <app-contact (aboutClicked)="onAboutClicked()"></app-contact>
+  <app-navigation></app-navigation>
 </div>
 
