@@ -28,7 +28,7 @@ export class AboutComponent {
   @Input() show = false;
   showPhoto = false;
   
-  constructor(private layoutService:LayoutService) {}
+  constructor(public layoutService:LayoutService) {}
 
   peekAtPhoto(event:Event) {
     this.showPhoto = true;
