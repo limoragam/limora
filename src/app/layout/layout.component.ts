@@ -1,10 +1,10 @@
 import { Component, AfterViewInit, ViewChild, ViewChildren, ElementRef, QueryList } from '@angular/core';
 import { trigger, transition, style, animate, state } from '@angular/animations';
 import { TweenLite, Cubic, TimelineLite } from 'gsap';
-import { VisualMushroomComponent } from './../../visuals/visual-mushroom/visual-mushroom.component';
-import { VisualDragonComponent } from '../../visuals/visual-dragon/visual-dragon.component';
-import { AboutComponent } from './../../about/about.component';
-import { LayoutService } from './../layout.service';
+import { VisualMushroomComponent } from './../visuals/visual-mushroom/visual-mushroom.component';
+import { VisualDragonComponent } from '../visuals/visual-dragon/visual-dragon.component';
+import { AboutComponent } from './../about/about.component';
+import { LayoutService } from './layout.service';
 
 @Component({
   selector: 'app-layout',
@@ -37,6 +37,9 @@ export class LayoutComponent implements AfterViewInit {
     {'bottom':'5vh', 'left':0} : {'bottom':0, 'right':0};
   flowState = 'pending';  // pending, slide-in, mushroom, stop
   showIntroducing = true;
+  backgroundOpacity = 0.3;
+  backgroundImage = this.layoutService.getOrientation()==='landscape' ? 
+    "url('/assets/images/backgroundShop.svg')" : "url('/assets/images/backgroundShopPortrait.svg')";
 
   constructor(public layoutService:LayoutService) { }
 
@@ -62,11 +65,17 @@ export class LayoutComponent implements AfterViewInit {
   resetLayout() {
     this.setMushroomPosition();
     this.setImagesPosition();
+    this.setBackgroundImage();
   }
 
   setMushroomPosition() {
     this.mushroomStyle = this.layoutService.getOrientation()==='landscape' ? 
       {'bottom':'5vh', 'left':0} : {bottom:0, 'right':0};
+  }
+
+  setBackgroundImage() {
+    this.backgroundImage = this.layoutService.getOrientation()==='landscape' ? 
+    "url('/assets/images/backgroundShop.svg')" : "url('/assets/images/backgroundShopPortrait.svg')";
   }
 
   setImagesPosition() {
@@ -90,6 +99,7 @@ export class LayoutComponent implements AfterViewInit {
       if (i === images.length - 1) {
         tl.call(()=>{
           this.visualDragonComponent.doAnimation();
+          this.backgroundOpacity = 0.8;
           if(this.flowState==='slide-in') {
             this.flowState = 'mushroom';
           }

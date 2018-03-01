@@ -1,13 +1,13 @@
-<div class="wrapper-about" (window:resize)="onResize($event)">
+<div class="wrapper-about">
   <div class="content">
-    <span id="target-greetings" class="large-text">Greetings, You.</span>
+    <span id="target-greetings" class="huge-text">Greetings, You.</span>
     <br>
 
     <!-- Limor Agam -->
     My name is <b><a href="#" (click)="peekAtPhoto($event)">Limor&nbsp;Agam</a></b>.
     <br>
-    <div class="image limoragam" *ngIf="contentFlags.selfPortrait">
-      <div class="self-portrait" *ngIf="contentFlags.selfPortrait && !showPhoto" [@fadeIn]>
+    <div class="image limoragam">
+      <div class="self-portrait" *ngIf="!showPhoto" [@fadeIn]>
         <a href="#" (click)="peekAtPhoto($event)">
           <img class="selfportrait" src="/assets/images/SelfPortrait.svg" alt="Self Portrait">
         </a>
@@ -20,7 +20,7 @@
     <!-- Silliness -->
     <span id="target-silliness">My mission is to promote silliness and happiness all over the world.</span>
     <br>
-    <div class="image" *ngIf="contentFlags.silliness" [@fadeIn]>
+    <div class="image" [@fadeIn]>
       <img class="silliness" src="/assets/images/Silliness.svg" alt="Silliness">
     </div>
 
@@ -28,14 +28,14 @@
     <span id="target-army">I have a professional army to help me out.</span>
     <br>
     <span id="target-business" class="large-text">We mean business.</span>
-    <div class="image" *ngIf="contentFlags.army" [@fadeIn]>
+    <div class="image" [@fadeIn]>
       <img class="army" src="/assets/images/Army.svg" alt="Army" [ngClass]="layoutService.getOrientation()==='landscape' ? 'landscape' : 'portrait'">
     </div>
-    <span *ngIf="contentFlags.army" [@fadeIn]>We will bring World Peace!</span>
+    <span [@fadeIn]>We will bring World Peace!</span>
     <br>
 
     <!-- World Peace (banana) -->
-    <div class="image" *ngIf="contentFlags.banana" [@fadeIn]>
+    <div class="image" [@fadeIn]>
       <img class="banana" src="/assets/images/BananaMissile.svg" alt="Banana" [ngClass]="layoutService.getOrientation()==='landscape' ? 'landscape' : 'portrait'"><br>
       <span class="small-text">(If wars looked like this, World Peace would come much, much sooner.)<br><br></span>
     </div>
@@ -64,5 +64,5 @@
   </div>
 
   <!-- Frog -->
-  <img src="/assets/images/Frog.svg" alt="Frog">
+  <img class="frog" src="/assets/images/Frog.svg" alt="Frog">
 </div>
