@@ -1,0 +1,40 @@
+<div 
+  class="wrapper" 
+  [ngStyle]="{'background-size':layoutService.getBackgroundDominantDimension()==='width' ? '100% auto':'auto 100%'}" 
+  (window:resize)="onResize($event)"
+  [@fadeIn]
+  >
+
+  <!-- space between opening and closing tags is important, otherwise div doesn't have any area -->
+  <div class="fullwidth-wrapper static background" [ngStyle]="{'opacity':backgroundOpacity,'background-image':backgroundImage}"> </div>
+
+  <div 
+    class="fullwidth-wrapper static introducing" 
+    [ngStyle]="{'font-size':layoutService.getOrientation()==='landscape' ? '3em':'2em'}"
+    >
+    <br>Introducing
+    <br>the
+    <br>Blue-Footed Booby
+  </div>
+
+
+  <div class="fullwidth-wrapper dynamic booby" *ngFor="let svg of layoutService.svgs">
+    <img 
+      class="mainImage"
+      [src]="svg" alt="See My Feet?" 
+      [style.height]="layoutService.getMainVisualHeightPx()"
+      >
+  </div>
+
+  <div class="fullwidth-wrapper dynamic dragon">
+    <app-visual-dragon></app-visual-dragon>
+  </div>
+
+</div>
+
+<app-title-limoragam [type]="'main'"></app-title-limoragam>
+<br>
+
+<div class="spacer"> </div>
+
+<app-about id="about"></app-about>

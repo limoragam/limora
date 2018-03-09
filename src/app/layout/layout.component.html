@@ -1,45 +1,7 @@
-<div 
-  class="wrapper" 
-  [ngStyle]="{'background-size':layoutService.getBackgroundDominantDimension()==='width' ? '100% auto':'auto 100%'}" 
-  (window:resize)="onResize($event)"
-  [@fadeIn]
-  >
-
-  <div class="fullwidth-wrapper static background" [ngStyle]="{'opacity':backgroundOpacity,'background-image':backgroundImage}"> </div>
-
-  <div 
-    class="fullwidth-wrapper static introducing" 
-    [ngStyle]="{'font-size':layoutService.getOrientation()==='landscape' ? '3em':'2em'}"
-    >
-    <br>Introducing
-    <br>the
-    <br>Blue-Footed Booby
-  </div>
-
-
-  <div class="fullwidth-wrapper dynamic booby" *ngFor="let svg of layoutService.svgs" >
-    <img 
-      class="mainImage"
-      [src]="svg" alt="See My Feet?" 
-      [style.height]="layoutService.getMainVisualHeightPx()"
-      >
-  </div>
-
-  <div class="fullwidth-wrapper dynamic dragon">
-    <app-visual-dragon></app-visual-dragon>
-  </div>
-
+<div class="main" [ngStyle]="{'height':mainHeight}" (window:resize)="onResize($event)">
+  <router-outlet></router-outlet>
 </div>
-
-<div class="limoragam" [@fadeIn]>
-  <app-visual-limoragam></app-visual-limoragam>
-  <h3>All-Purpose Optimistic Visuals&nbsp;&amp;&nbsp;Design</h3>
-</div>
-<br>
-
-<app-about id="about"></app-about>
 
 <div class="footer">
   <app-navigation></app-navigation>
 </div>
-

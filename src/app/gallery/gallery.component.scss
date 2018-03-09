@@ -1,0 +1,60 @@
+@import "../commonStyles.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    width: 100vw;
+    text-align: left;
+    background-color: $footer-background-color;
+    border-bottom: 1px solid $text-color;
+}
+
+.gallery-wrapper {
+    text-align: center;
+}
+
+.title {
+    font-size: 4em;
+}
+
+.subtitle {
+    width: 100%;
+    h2 {
+        font-weight: normal;
+        padding: 0.5em 0 0 0;
+    }
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cell img {
+    display: block;
+    margin: 1rem;
+    margin: 0.5em auto;
+    padding: 0.05em;
+    background-color: $text-color;
+}
+
+@media screen and (min-width: 600px) {
+    .grid {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .cell {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .cell {
+        width: calc(100%/3);
+    }
+}

@@ -1,0 +1,15 @@
+<div class="limoragam" [@fadeIn] [ngStyle]="{'display':type==='header' ? 'flex':'auto'}">
+  <app-visual-limoragam 
+    [percentOfWindowInnerHeightLandscape]="type==='main' ? 0.08 : 0.04" 
+    [percentOfWindowInnerWidthPortrait]="type==='main' ? 0.96 : 0.48"
+    [ngStyle]="{'margin':type==='header' ? '0 0.5em' : '0'}"
+    ></app-visual-limoragam>
+  <h3
+    [ngStyle]="{'font-size':type==='header' ? '1em' : 'auto'}"
+    >
+    <span class="spaces" *ngIf="type==='header' && layoutService.getOrientation()==='landscape'">&nbsp;&nbsp;&nbsp;</span>
+    All-Purpose Optimistic Visuals&nbsp;&amp;&nbsp;Design
+    <span class="spaces" *ngIf="type==='header' && layoutService.getOrientation()==='landscape'">&nbsp;&nbsp;&nbsp;</span>
+    <span *ngIf="type==='header'">+972.50.7973765</span>
+  </h3>
+</div>

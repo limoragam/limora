@@ -1,7 +1,11 @@
 <div class="item-wrapper" *ngFor="let navigationItem of navigationService.navigationItems">
     <div class="tooltip" *ngIf="show" [@fadeIn] (click)="onItemClicked(navigationItem.name)">
         <span class="tooltiptext">{{navigationItem.tooltipText}}</span>
-        <a [href]="navigationItem.href" [target]="navigationItem.target">
+        <!-- <a [href]="navigationItem.href" [target]="navigationItem.target"> -->
+        <a 
+            *ngIf="navigationItem.href; else aRouterLink" 
+            [href]="navigationItem.href" target="navigationItem.target"
+            >
             <img 
                 class="icon" 
                 height="layoutService.getOrientation()==='landscape' ? '5em' : '25em'" 
@@ -9,7 +13,21 @@
                 [alt]="navigationItem.alt"
                 >
         </a>
-    </div>
+        <ng-template #aRouterLink>
+            <a
+                [routerLink]="navigationItem.routerLink" 
+                routerLinkActive="active" 
+                [routerLinkActiveOptions]="{exact:true}"
+                >
+                <img 
+                    class="icon" 
+                    height="layoutService.getOrientation()==='landscape' ? '5em' : '25em'" 
+                    [src]="navigationItem.image" 
+                    [alt]="navigationItem.alt"
+                    >
+            </a>
+    </ng-template>
+</div>
 </div>    
 
 <div>

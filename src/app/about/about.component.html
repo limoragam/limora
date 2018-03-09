@@ -9,11 +9,11 @@
     <div class="image limoragam">
       <div class="self-portrait" *ngIf="!showPhoto" [@fadeIn]>
         <a href="#" (click)="peekAtPhoto($event)">
-          <img class="selfportrait" src="/assets/images/SelfPortrait.svg" alt="Self Portrait">
+          <img class="selfportrait sheep" src="/assets/images/SelfPortrait.svg" alt="Self Portrait">
         </a>
       </div>
       <div class="self-portrait" *ngIf="showPhoto" [@fadeIn]>
-        <img class="photo" src="/assets/images/portrait01bw.jpg" alt="Limor Agam">
+        <img class="selfportrait photo" src="/assets/images/portrait01bw.jpg" alt="Limor Agam">
       </div>
     </div>
 

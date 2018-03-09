@@ -11,13 +11,16 @@ import { AboutComponent } from './about/about.component';
 import { VisualXComponent } from './visuals/visual-x/visual-x.component';
 import { VisualLimoragamComponent } from './visuals/visual-limoragam/visual-limoragam.component';
 import { VisualDragonComponent } from './visuals/visual-dragon/visual-dragon.component';
-import { VisualMushroomComponent } from './visuals/visual-mushroom/visual-mushroom.component';
+import { NavigationComponent } from './navigation/navigation.component';
+import { HamburgerComponent } from './hamburger/hamburger.component';
+import { HomeComponent } from './home/home.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { TitleLimoragamComponent } from './title-limoragam/title-limoragam.component';
 
 import { LayoutService } from './layout/layout.service';
 import { NavigationService } from './navigation/navigation.service';
+import { GalleryService } from './gallery/gallery.service';
 
-import { NavigationComponent } from './navigation/navigation.component';
-import { HamburgerComponent } from './hamburger/hamburger.component';
 import { MultiplyPipe } from './multiply.pipe';
 
 @NgModule({
@@ -28,10 +31,12 @@ import { MultiplyPipe } from './multiply.pipe';
     VisualXComponent,
     VisualLimoragamComponent,
     VisualDragonComponent,
-    VisualMushroomComponent,
     NavigationComponent,
     HamburgerComponent,
     MultiplyPipe,
+    HomeComponent,
+    GalleryComponent,
+    TitleLimoragamComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,8 @@ import { MultiplyPipe } from './multiply.pipe';
   ],
   providers: [
     LayoutService,
-    NavigationService
+    NavigationService,
+    GalleryService
   ],
   bootstrap: [AppComponent]
 })

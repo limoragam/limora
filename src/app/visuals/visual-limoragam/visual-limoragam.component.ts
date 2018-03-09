@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { LayoutService } from '../../layout/layout.service';
 
 @Component({
@@ -7,13 +7,16 @@ import { LayoutService } from '../../layout/layout.service';
   styleUrls: ['./visual-limoragam.component.scss']
 })
 export class VisualLimoragamComponent {
+  @Input() percentOfWindowInnerHeightLandscape = 0.08;
+  @Input() percentOfWindowInnerWidthPortrait = 0.96;
+
   constructor(public layoutService:LayoutService) {}
 
   getHeight() {
-    return (this.layoutService.getOrientation()==='landscape') ? window.innerHeight*0.08 : null;
+    return (this.layoutService.getOrientation()==='landscape') ? window.innerHeight*this.percentOfWindowInnerHeightLandscape : null;
   }
 
   getWidth() {
-    return (this.layoutService.getOrientation()==='portrait') ? window.innerWidth*0.96 : null;
+    return (this.layoutService.getOrientation()==='portrait') ? window.innerWidth*this.percentOfWindowInnerWidthPortrait : null;
   }
 }

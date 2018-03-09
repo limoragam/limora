@@ -38,12 +38,12 @@ export class NavigationComponent {
       returnVal = false;
     }
     if(itemName==='about') {
-      $('html, body').animate({
+      $('.main').animate({
         'scrollTop':$('#about').offset().top
       }, 1000);
     }
     if(itemName==='home') {
-      $('html, body').animate({
+      $('.main').animate({
         'scrollTop':$('body').offset().top
       }, 1000);
     }
