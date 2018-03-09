@@ -3,10 +3,16 @@ export class NavigationService {
     {
       name:"home",
       tooltipText:"Home",
-      href:"#",
+      routerLink:"/", 
       image:"/assets/images/ClickHome.svg",
       alt:"Home",
-      target:"_self",
+    },
+    {
+      name:"gallery",
+      tooltipText:"Gallery",
+      routerLink:"/gallery", 
+      image:"/assets/images/ClickWorkAndPlay.svg",
+      alt:"Work & Play",
     },
     {
       name:"phone",
@@ -43,10 +49,9 @@ export class NavigationService {
     {
       name:"about",
       tooltipText:"About",
-      href:"#about",
+      routerLink:"/", 
       image:"/assets/images/ClickLick.svg",
       alt:"About",
-      target:"_self",
     },
   ]
 }

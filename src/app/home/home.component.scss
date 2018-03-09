@@ -1,0 +1,43 @@
+* {
+//    border: 1px solid pink;
+    margin: 0;
+}
+
+.wrapper {
+    padding: 10px 0 0 0;
+    height: 68vh;
+    position: relative;
+    text-align: center;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.fullwidth-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+}
+
+.dynamic {
+    transform: translateX(100vw);
+}
+
+.introducing {
+    font-size: 5em;
+    opacity: 0;
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    background-image: url("/assets/images/backgroundShop.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: opacity 400ms ease-in-out;
+}
+
+.spacer {
+    width: 100%;
+    height: 4em;
+}
