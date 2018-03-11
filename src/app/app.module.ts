@@ -22,6 +22,7 @@ import { NavigationService } from './navigation/navigation.service';
 import { GalleryService } from './gallery/gallery.service';
 
 import { MultiplyPipe } from './multiply.pipe';
+import { SliderComponent } from './slider/slider.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { MultiplyPipe } from './multiply.pipe';
     HomeComponent,
     GalleryComponent,
     TitleLimoragamComponent,
+    SliderComponent,
   ],
   imports: [
     BrowserModule,

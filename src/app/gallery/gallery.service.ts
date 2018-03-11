@@ -5,6 +5,7 @@ export class GalleryService {
   items = [
     {
       title:"Black & White",
+      id:"bw",
       images:[
         {
           thumbnail:"/assets/images/gallery/_bw Find A Way.png",
@@ -40,6 +41,7 @@ export class GalleryService {
     },
     {
       title:"Color",
+      id:"color",
       images:[
         {
           thumbnail:"/assets/images/gallery/_color Bears.jpg",
@@ -55,6 +57,7 @@ export class GalleryService {
     },
     {
       title:"Web",
+      id:"web",
       images:[
         {
           thumbnail:"/assets/images/gallery/_web Yaela Dror.png",
@@ -65,6 +68,7 @@ export class GalleryService {
     },
     {
       title:"Walls",
+      id:"walls",
       images:[
         {
           thumbnail:"/assets/images/gallery/_walls SevenAngelsArcher.jpg",
@@ -95,6 +99,22 @@ export class GalleryService {
           thumbnail:"/assets/images/gallery/_walls SevenAngelsVassal.jpg",
           fullsize:"/assets/images/gallery/walls SevenAngelsVassal.jpg",
           alt:"Vassal"
+        },
+      ]
+    },
+    {
+      title:"Books",
+      id:"books",
+      images:[
+        {
+          thumbnail:"/assets/images/gallery/_books Dog.jpg",
+          fullsize:"/assets/images/gallery/books Dog.jpg",
+          alt:"The Dog's Intelligence"
+        },
+        {
+          thumbnail:"/assets/images/gallery/_books Robin.jpg",
+          fullsize:"/assets/images/gallery/books Robin.jpg",
+          alt:"Who Hurt Cock Robin?"
         },
       ]
     },
