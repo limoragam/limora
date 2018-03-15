@@ -5,43 +5,43 @@ export class GalleryService {
   items = [
     {
       title:"Black & White",
-      id:"bw",
+      groupId:"bw",
       images:[
         {
           thumbnail:"/assets/images/gallery/_bw Find A Way.png",
-          fullsize:"/assets/images/gallery/bw Find a way to hug.png",
+          fullsize:"/assets/images/gallery/bw Find a Way to Hug Landscape.svg",
           alt:"Find a way to hug"
         },
         {
           thumbnail:"/assets/images/gallery/_bw Shana Tova Dragon.png",
-          fullsize:"/assets/images/gallery/bw Shana Tova Dragon.png",
+          fullsize:"/assets/images/gallery/bw Shana Tova Dragon Landscape.png",
           alt:"Shana Tova Dragon"
         },
         {
           thumbnail:"/assets/images/gallery/_bw Share Your Toothpaste.jpg",
-          fullsize:"/assets/images/gallery/bw Share Your Toothpaste.jpg",
+          fullsize:"/assets/images/gallery/bw Share Your Toothpaste Landscape.svg",
           alt:"Share Your Toothpaste"
         },
         {
           thumbnail:"/assets/images/gallery/_bw i am.png",
-          fullsize:"/assets/images/gallery/bw i am.png",
+          fullsize:"/assets/images/gallery/bw i am Landscape.svg",
           alt:"i am"
         },
         {
           thumbnail:"/assets/images/gallery/_bw Croc.jpg",
-          fullsize:"/assets/images/gallery/bw Croc.png",
+          fullsize:"/assets/images/gallery/bw Croc Landscape.svg",
           alt:"Croc"
         },
         {
-          thumbnail:"/assets/images/gallery/_bw Or's Personal Dragon.jpg",
-          fullsize:"/assets/images/gallery/bw Or's Personal Dragon.jpg",
+          thumbnail:"/assets/images/gallery/_bw Ors Personal Dragon.jpg",
+          fullsize:"/assets/images/gallery/bw Ors Personal Dragon Landscape.svg",
           alt:"Or's Personal Dragon"
         },
       ]
     },
     {
       title:"Color",
-      id:"color",
+      groupId:"color",
       images:[
         {
           thumbnail:"/assets/images/gallery/_color Bears.jpg",
@@ -57,7 +57,7 @@ export class GalleryService {
     },
     {
       title:"Web",
-      id:"web",
+      groupId:"web",
       images:[
         {
           thumbnail:"/assets/images/gallery/_web Yaela Dror.png",
@@ -68,7 +68,7 @@ export class GalleryService {
     },
     {
       title:"Walls",
-      id:"walls",
+      groupId:"walls",
       images:[
         {
           thumbnail:"/assets/images/gallery/_walls SevenAngelsArcher.jpg",
@@ -104,7 +104,7 @@ export class GalleryService {
     },
     {
       title:"Books",
-      id:"books",
+      groupId:"books",
       images:[
         {
           thumbnail:"/assets/images/gallery/_books Dog.jpg",
@@ -119,5 +119,19 @@ export class GalleryService {
       ]
     },
   ]
+
+  getNumberOfImagesInGroup(groupId:string):number {
+    let group = this.items.find(function(item){
+      return item.groupId === groupId;
+    });
+    return group.images.length;
+  }
+
+  getImages(groupId:string):{}[] {
+    let group = this.items.find(function(item) {
+      return item.groupId === groupId;
+    });
+    return group.images;
+  }
 
 }

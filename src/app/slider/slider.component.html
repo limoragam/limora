@@ -1,30 +1,35 @@
 <div class="slider-wrapper">
-  <span id="sl_i1" class="sl_command sl_i">&nbsp;</span>
-	<span id="sl_i2" class="sl_command sl_i">&nbsp;</span>
-	<span id="sl_i3" class="sl_command sl_i">&nbsp;</span>
-  <span id="sl_i4" class="sl_command sl_i">&nbsp;</span>
+	<!-- anchors -->
+  <!-- <span id="anchor1" class="slider_anchor">&nbsp;</span>
+	<span id="anchor2" class="slider_anchor">&nbsp;</span>
+	<span id="anchor3" class="slider_anchor">&nbsp;</span>
+  <span id="anchor4" class="slider_anchor">&nbsp;</span> -->
 	
 	<section id="slideshow">
 		<!-- next and prev -->
-		<a class="commands prev commands1" href="gallery#sl_i4" title="Go to last slide">&lt;</a>
-		<a class="commands next commands1" href="gallery#sl_i2" title="Go to 2nd slide">&gt;</a>
-		<a class="commands prev commands2" href="gallery#sl_i1" title="Go to 1rst slide">&lt;</a>
-		<a class="commands next commands2" href="gallery#sl_i3" title="Go to 3rd slide">&gt;</a>
-		<a class="commands prev commands3" href="gallery#sl_i2" title="Go to 2nd slide">&lt;</a>
-		<a class="commands next commands3" href="gallery#sl_i4" title="Go to 4th slide">&gt;</a>
-		<a class="commands prev commands4" href="gallery#sl_i3" title="Go to 3rd slide">&lt;</a>
-		<a class="commands next commands4" href="gallery#sl_i1" title="Go to first slide">&gt;</a>
+		<a class="navigation navigation1 prev" href="gallery#anchor4" title="Last" (click)="slidePrev()">&lt;</a>
+		<a class="navigation navigation1 next" href="gallery#anchor2" title="Next" (click)="slideNext()">&gt;</a>
+		<a class="navigation navigation2 prev" href="gallery#anchor1" title="Previous"(click)="slidePrev()">&lt;</a>
+		<a class="navigation navigation2 next" href="gallery#anchor3" title="Next" (click)="slideNext()">&gt;</a>
+		<a class="navigation navigation3 prev" href="gallery#anchor2" title="Previous" (click)="slidePrev()">&lt;</a>
+		<a class="navigation navigation3 next" href="gallery#anchor4" title="Next" (click)="slideNext()">&gt;</a>
+		<a class="navigation navigation4 prev" href="gallery#anchor3" title="Previous" (click)="slidePrev()">&lt;</a>
+		<a class="navigation navigation4 next" href="gallery#anchor1" title="First" (click)="slideNext()">&gt;</a>
 		
 		<div class="container">
-			<div class="background_slider"></div>
+			<div class="background_slider" [ngStyle]="background"></div>
 		</div>
 		
-		<ul class="dots_commands"><!--
-			--><li><a title="Show slide 1" href="gallery#sl_i1">Slide 1</a></li><!--
-			--><li><a title="Show slide 2" href="gallery#sl_i2">Slide 2</a></li><!--
-			--><li><a title="Show slide 3" href="gallery#sl_i3">Slide 3</a></li><!--
-			--><li><a title="Show slide 4" href="gallery#sl_i4">Slide 4</a></li>
-    </ul>
+		<!-- dots -->
+		<!-- Comments in between are there so no spaces appear between items -->
+		<ul class="dots_navigation"><!--
+			--><li><a title="1" href="gallery#anchor1" (click)="positionBackground(0)">1</a></li><!--
+			--><li><a title="2" href="gallery#anchor2" (click)="positionBackground(1)">2</a></li><!--
+			--><li><a title="3" href="gallery#anchor3" (click)="positionBackground(2)">3</a></li><!--
+			--><li><a title="4" href="gallery#anchor4" (click)="positionBackground(3)">4</a></li><!--
+		--><li><a title="5" href="gallery#anchor5" (click)="positionBackground(4)">5</a></li><!--
+		--><li><a title="6" href="gallery#anchor6" (click)="positionBackground(5)">6</a></li>
+	</ul>
 		
 	</section>
 </div>

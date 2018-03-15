@@ -3,9 +3,6 @@
 </div>
 
 <div class="gallery-wrapper">
-  <app-slider></app-slider>
-  <br>
-
   <div class="title">Work &amp; Play</div>
 
   <div id="item.id" class="container" *ngFor="let item of galleryService.items">
@@ -13,7 +10,7 @@
       <h2>{{item.title}}</h2>
     </div>
     <div class="grid">
-      <div class="cell" *ngFor="let image of item.images">
+      <div class="cell" *ngFor="let image of item.images; let i=index" (click)="onThumbnailClick(item.groupId,i)">
         <img [src]="image.thumbnail" [alt]="image.alt">
       </div>
     </div>
@@ -21,4 +18,9 @@
 
   <br>
   
+</div>
+
+<div class="popup" *ngIf="showPopup" [ngStyle]="{}" [@fadeIn]>
+  <app-visual-x (clicked)="onXClick()"></app-visual-x>
+  <app-slider [groupId]="currentGroup" [currentSlide]="currentSlide"></app-slider>
 </div>
