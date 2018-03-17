@@ -1,20 +1,8 @@
-<div class="slider-wrapper">
-	<!-- anchors -->
-  <!-- <span id="anchor1" class="slider_anchor">&nbsp;</span>
-	<span id="anchor2" class="slider_anchor">&nbsp;</span>
-	<span id="anchor3" class="slider_anchor">&nbsp;</span>
-  <span id="anchor4" class="slider_anchor">&nbsp;</span> -->
-	
+<div class="slider-wrapper" (window:keyup)="onKeyup($event)">
 	<section id="slideshow">
 		<!-- next and prev -->
-		<a class="navigation navigation1 prev" href="gallery#anchor4" title="Last" (click)="slidePrev()">&lt;</a>
-		<a class="navigation navigation1 next" href="gallery#anchor2" title="Next" (click)="slideNext()">&gt;</a>
-		<a class="navigation navigation2 prev" href="gallery#anchor1" title="Previous"(click)="slidePrev()">&lt;</a>
-		<a class="navigation navigation2 next" href="gallery#anchor3" title="Next" (click)="slideNext()">&gt;</a>
-		<a class="navigation navigation3 prev" href="gallery#anchor2" title="Previous" (click)="slidePrev()">&lt;</a>
-		<a class="navigation navigation3 next" href="gallery#anchor4" title="Next" (click)="slideNext()">&gt;</a>
-		<a class="navigation navigation4 prev" href="gallery#anchor3" title="Previous" (click)="slidePrev()">&lt;</a>
-		<a class="navigation navigation4 next" href="gallery#anchor1" title="First" (click)="slideNext()">&gt;</a>
+		<a class="navigation prev" href="gallery#" title="Previous" (click)="slidePrev()">&lt;</a>
+		<a class="navigation next" href="gallery#" title="Next" (click)="slideNext()">&gt;</a>
 		
 		<div class="container">
 			<div class="background_slider" [ngStyle]="background"></div>
@@ -23,13 +11,14 @@
 		<!-- dots -->
 		<!-- Comments in between are there so no spaces appear between items -->
 		<ul class="dots_navigation"><!--
-			--><li><a title="1" href="gallery#anchor1" (click)="positionBackground(0)">1</a></li><!--
-			--><li><a title="2" href="gallery#anchor2" (click)="positionBackground(1)">2</a></li><!--
-			--><li><a title="3" href="gallery#anchor3" (click)="positionBackground(2)">3</a></li><!--
-			--><li><a title="4" href="gallery#anchor4" (click)="positionBackground(3)">4</a></li><!--
-		--><li><a title="5" href="gallery#anchor5" (click)="positionBackground(4)">5</a></li><!--
-		--><li><a title="6" href="gallery#anchor6" (click)="positionBackground(5)">6</a></li>
-	</ul>
+			--><li *ngFor="let i of numberOfSlides|multiply"><a 
+				title="{{i}}" 
+				href="gallery#" 
+				(click)="setCurrentSlide(i-1)" 
+				[ngStyle]="{background:currentSlide===(i-1)?'#aaa':'none'}"
+				> </a></li><!--
+			-->
+		</ul>
 		
 	</section>
 </div>

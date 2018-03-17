@@ -6,13 +6,13 @@
 }
 #slideshow {
 	position: relative;
-	width: 600px;
-	height: 400px;
+	width: 600px;	//340
+	height: 400px;	//600
 	margin: 0 auto 2em;
 }
 
 /* prev next */
-#slideshow .navigation {
+.navigation {
 	position: absolute;
 	top: 45%;
 	padding: 5px 13px;
@@ -20,22 +20,17 @@
 	font-size: 2em;
 	color: #aaa;
 	text-decoration:none;
-}
-#slideshow .prev {
-	left: -48px;
-}
-#slideshow .next {
-	right: -48px;
-}
-#slideshow .prev,
-#slideshow .next {
-	display:none;
-}
-#slideshow .navigation1 {
 	display: block;
 }
+.prev {
+	left: -48px;
+}
+.next {
+	right: -48px;
+}
 
-#slideshow .container {
+// Slider
+.container {
 	position:relative;
 	width: 600px;
 	height: 400px;
@@ -45,13 +40,13 @@
 }
 
 .background_slider {
-	transition: background 1s;
+	transition: background-position 1s;
 }
 
-/* dots styles */
+// dots
 .dots_navigation  {
 	position: relative;
-	top: 12px;
+	top: 8px;
 	padding:0; 
 	margin:0;
 	text-align:center;
@@ -65,44 +60,12 @@
 .dots_navigation a {
 	position: relative;
 	display:inline-block;
-	height:8px; width: 8px;
+	height:8px; 
+	width: 8px;
 	margin: 0 5px;
 	text-indent: -9999px;	// Use only the before/after, push normal text out of view
 	border-bottom:0;
 	border-radius: 50%;
 	box-shadow: 0 1px 2px rgba(0,0,0,0.55) inset;
-}
-.dots_navigation li + li a {
-	z-index:10;
-}
-.dots_navigation li:first-child a:before {
-	position: absolute;
-	top: 0; left: 0;
-	content: " ";
-	width: 8px; height: 8px;
-	background: #aaa;
 	z-index:20;
-	border-radius: 50%;
-	box-shadow: 0 1px 2px rgba(0,0,0,0.55) inset;
 }
-
-// Targets
-.slider_anchor { display: none; }
-
-.slider_anchor:target ~ #slideshow .dots_navigation li:first-child a:before	{ display:block; }
-
-#anchor1:target ~ #slideshow .navigation								{ display: none; }
-#anchor1:target ~ #slideshow .navigation1								{ display: block; }
-#anchor1:target ~ #slideshow .dots_navigation li:first-child a:before	{ left:0; }
-
-#anchor2:target ~ #slideshow .navigation								{ display: none; }
-#anchor2:target ~ #slideshow .navigation2								{ display: block; }
-#anchor2:target ~ #slideshow .dots_navigation li:first-child a:before	{ left:18px; }
-
-#anchor3:target ~ #slideshow .navigation								{ display: none; }
-#anchor3:target ~ #slideshow .navigation3								{ display: block; }
-#anchor3:target ~ #slideshow .dots_navigation li:first-child a:before	{ left:36px; }
-
-#anchor4:target ~ #slideshow .navigation								{ display: none; }
-#anchor4:target ~ #slideshow .navigation4								{ display: block; }
-#anchor4:target ~ #slideshow .dots_navigation li:first-child a:before	{ left:54px; }

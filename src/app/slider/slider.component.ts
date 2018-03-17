@@ -31,14 +31,14 @@ export class SliderComponent implements OnInit {
 
   setBackground() {
     this.background.width = 100*this.numberOfSlides + "%";
-    this.positionBackground(this.currentSlide);
+    this.centerCurrentSlide();
     this.buildBackgroundImage();
   }
 
-  positionBackground(slideIndex:number) {
+  centerCurrentSlide() {
     let positionString = "";
     for(let i=0; i<this.numberOfSlides; i++) {
-      positionString += (i-slideIndex)*this.slideWidth + "px 0";
+      positionString += (i-this.currentSlide)*this.slideWidth + "px 0";
       if(i<this.numberOfSlides-1) {
         positionString += ", ";
       }
@@ -58,15 +58,29 @@ export class SliderComponent implements OnInit {
     this.background["background-image"] = backgroundImageString;
   }
 
+  setCurrentSlide(slide:number) {
+    this.currentSlide = slide;
+    this.centerCurrentSlide();
+  }
+
   slideNext() {
     this.currentSlide++;
     this.currentSlide = this.currentSlide%this.numberOfSlides;
-    this.positionBackground(this.currentSlide);
+    this.centerCurrentSlide();
   }
 
   slidePrev() {
     this.currentSlide--;
     this.currentSlide = (this.currentSlide+this.numberOfSlides)%this.numberOfSlides;
-    this.positionBackground(this.currentSlide);
+    this.centerCurrentSlide();
+  }
+
+  onKeyup(event:KeyboardEvent) {
+    if (event.keyCode === 37) { // Catch left arrow key
+      this.slidePrev();
+    }
+    if (event.keyCode === 39) { // Catch right arrow key
+      this.slideNext();
+    }
   }
 }
