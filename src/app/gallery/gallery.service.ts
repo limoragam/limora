@@ -45,12 +45,12 @@ export class GalleryService {
       images:[
         {
           thumbnail:"/assets/images/gallery/_color Bears.jpg",
-          fullsize:"/assets/images/gallery/color Bears.png",
+          fullsize:"/assets/images/gallery/color Bears Landscape.png",
           alt:"Bears"
         },
         {
           thumbnail:"/assets/images/gallery/_color Rabbit.png",
-          fullsize:"/assets/images/gallery/color Rabbit.png",
+          fullsize:"/assets/images/gallery/color Rabbit Landscape.png",
           alt:"Rabbit"
         },
       ]
@@ -61,7 +61,7 @@ export class GalleryService {
       images:[
         {
           thumbnail:"/assets/images/gallery/_web Yaela Dror.png",
-          fullsize:"/assets/images/gallery/web Yaela Dror.png",
+          fullsize:"/assets/images/gallery/web Yaela Dror Landscape.png",
           alt:"Yaela Dror"
         },
       ]
@@ -72,32 +72,32 @@ export class GalleryService {
       images:[
         {
           thumbnail:"/assets/images/gallery/_walls SevenAngelsArcher.jpg",
-          fullsize:"/assets/images/gallery/walls SevenAngelsArcher.jpg",
+          fullsize:"/assets/images/gallery/walls SevenAngelsArcher Landscape.png",
           alt:"Archer"
         },
         {
           thumbnail:"/assets/images/gallery/_walls SevenAngelsBishop.jpg",
-          fullsize:"/assets/images/gallery/walls SevenAngelsBishop.jpg",
+          fullsize:"/assets/images/gallery/walls SevenAngelsBishop Landscape.png",
           alt:"Bishop"
         },
         {
           thumbnail:"/assets/images/gallery/_walls SevenAngelsKnight.jpg",
-          fullsize:"/assets/images/gallery/walls SevenAngelsKnight.jpg",
+          fullsize:"/assets/images/gallery/walls SevenAngelsKnight Landscape.png",
           alt:"Knight"
         },
         {
           thumbnail:"/assets/images/gallery/_walls SevenAngelsScribeAndHorseman.jpg",
-          fullsize:"/assets/images/gallery/walls SevenAngelsScribeAndHorseman.jpg",
+          fullsize:"/assets/images/gallery/walls SevenAngelsScribeAndHorseman Landscape.png",
           alt:"Scribe and Horseman"
         },
         {
           thumbnail:"/assets/images/gallery/_walls SevenAngelsWaterCarrier.jpg",
-          fullsize:"/assets/images/gallery/walls SevenAngelsWaterCarrier.jpg",
+          fullsize:"/assets/images/gallery/walls SevenAngelsWaterCarrier Landscape.png",
           alt:"Water Carrier"
         },
         {
           thumbnail:"/assets/images/gallery/_walls SevenAngelsVassal.jpg",
-          fullsize:"/assets/images/gallery/walls SevenAngelsVassal.jpg",
+          fullsize:"/assets/images/gallery/walls SevenAngelsVassal Landscape.png",
           alt:"Vassal"
         },
       ]
@@ -108,12 +108,12 @@ export class GalleryService {
       images:[
         {
           thumbnail:"/assets/images/gallery/_books Dog.jpg",
-          fullsize:"/assets/images/gallery/books Dog.jpg",
+          fullsize:"/assets/images/gallery/books Dog Landscape.png",
           alt:"The Dog's Intelligence"
         },
         {
           thumbnail:"/assets/images/gallery/_books Robin.jpg",
-          fullsize:"/assets/images/gallery/books Robin.jpg",
+          fullsize:"/assets/images/gallery/books Robin Landscape.jpg",
           alt:"Who Hurt Cock Robin?"
         },
       ]

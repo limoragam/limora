@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { GalleryService } from './gallery.service';
-//import { VisualXComponent } from '../visuals/visual-x/visual-x.component';
 import { trigger, transition, style, animate } from '@angular/animations';
 
 @Component({
@@ -21,7 +20,6 @@ import { trigger, transition, style, animate } from '@angular/animations';
   ]
 })
 export class GalleryComponent {
-//  @ViewChild(VisualXComponent) visualXComponent:VisualXComponent;
   showPopup = false;
   currentGroup = "";
   currentSlide = 0;
@@ -34,8 +32,14 @@ export class GalleryComponent {
     this.showPopup = true;
   }
 
-  onXClick() {
+  closePopup() {
     this.showPopup = false;
     this.router.navigate(['/gallery']);
+  }
+
+  onKeyup(event:KeyboardEvent) {
+    if (event.keyCode === 27) { // Catch escape key
+      this.closePopup();
+    }
   }
 }
