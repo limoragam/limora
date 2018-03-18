@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { GalleryService } from './../gallery/gallery.service';
+import { LayoutService } from './../layout/layout.service';
 
 @Component({
   selector: 'app-slider',
@@ -9,30 +10,44 @@ import { GalleryService } from './../gallery/gallery.service';
 export class SliderComponent implements OnInit {
   @Input() groupId:string;
   @Input() currentSlide = 0;
-  slideWidth = 600;
+  slideWidth = 0;
   numberOfSlides = 0;
+
+  slideshowDimensions = {
+    width:"",
+    height:"",
+  };
+
   background = {
     position:"absolute",
     left:0,
     top:0,
-    height:"400px",
     width:"",
+    height:"",
     'background-repeat':"no-repeat",
     'background-image':"",
     'background-position':"",
   };
 
-  constructor(public galleryService:GalleryService) {}
+  constructor(public galleryService:GalleryService, public layoutService:LayoutService) {}
 
   ngOnInit() {
+    this.setSlideshowDimensions();
     this.numberOfSlides = this.galleryService.getNumberOfImagesInGroup(this.groupId);
+    this.slideWidth = this.layoutService.getOrientation()==='landscape' ? 600 : 320;
     this.setBackground();
   }
 
   setBackground() {
     this.background.width = 100*this.numberOfSlides + "%";
+    this.background.height = this.layoutService.getOrientation()==='landscape' ? "400px" : "600px";
     this.centerCurrentSlide();
     this.buildBackgroundImage();
+  }
+
+  setSlideshowDimensions() {
+    this.slideshowDimensions.width = this.layoutService.getOrientation()==='landscape' ? "600px" : "300px";
+    this.slideshowDimensions.height = this.layoutService.getOrientation()==='landscape' ? "400px" : "480px";
   }
 
   centerCurrentSlide() {
@@ -49,8 +64,9 @@ export class SliderComponent implements OnInit {
   buildBackgroundImage() {
     let backgroundImageString = "";
     let images = this.galleryService.getImages(this.groupId);
+    let orientation = this.layoutService.getOrientation();
     for(let i=0; i<this.numberOfSlides; i++) {
-      backgroundImageString += "url('" + images[i]["fullsize"] + "')";
+      backgroundImageString += "url('" + images[i][orientation] + "')";
       if(i<this.numberOfSlides-1) {
         backgroundImageString += ", ";
       }

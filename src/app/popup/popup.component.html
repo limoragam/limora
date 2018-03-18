@@ -1,0 +1,13 @@
+<div class="popup" [@fadeIn] (window:keyup)="onKeyup($event)">
+  <app-visual-x (clicked)="onXClick()"></app-visual-x>
+  <app-slider
+    *ngIf="type==='slider'; else singleImage" 
+    [groupId]="groupId" 
+    [currentSlide]="imageIndex"
+    ></app-slider>
+  <ng-template #singleImage>    
+    <img 
+      [src]="galleryService.getImage(this.groupId, this.imageIndex)['portrait']" 
+      [alt]="galleryService.getImage(this.groupId, this.imageIndex)['alt']">
+  </ng-template>
+</div>

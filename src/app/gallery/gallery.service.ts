@@ -9,32 +9,38 @@ export class GalleryService {
       images:[
         {
           thumbnail:"/assets/images/gallery/_bw Find A Way.png",
-          fullsize:"/assets/images/gallery/bw Find a Way to Hug Landscape.svg",
+          landscape:"/assets/images/gallery/bw Find a Way to Hug Landscape.svg",
+          portrait:"/assets/images/gallery/bw Find a Way to Hug Portrait.svg",
           alt:"Find a way to hug"
         },
         {
           thumbnail:"/assets/images/gallery/_bw Shana Tova Dragon.png",
-          fullsize:"/assets/images/gallery/bw Shana Tova Dragon Landscape.png",
+          landscape:"/assets/images/gallery/bw Shana Tova Dragon Landscape.png",
+          portrait:"/assets/images/gallery/bw Shana Tova Dragon Portrait.png",
           alt:"Shana Tova Dragon"
         },
         {
           thumbnail:"/assets/images/gallery/_bw Share Your Toothpaste.jpg",
-          fullsize:"/assets/images/gallery/bw Share Your Toothpaste Landscape.svg",
+          landscape:"/assets/images/gallery/bw Share Your Toothpaste Landscape.svg",
+          portrait:"/assets/images/gallery/bw Share Your Toothpaste Portrait.svg",
           alt:"Share Your Toothpaste"
         },
         {
           thumbnail:"/assets/images/gallery/_bw i am.png",
-          fullsize:"/assets/images/gallery/bw i am Landscape.svg",
+          landscape:"/assets/images/gallery/bw i am Landscape.svg",
+          portrait:"/assets/images/gallery/bw i am Portrait.svg",
           alt:"i am"
         },
         {
           thumbnail:"/assets/images/gallery/_bw Croc.jpg",
-          fullsize:"/assets/images/gallery/bw Croc Landscape.svg",
+          landscape:"/assets/images/gallery/bw Croc Landscape.svg",
+          portrait:"/assets/images/gallery/bw Croc Portrait.svg",
           alt:"Croc"
         },
         {
           thumbnail:"/assets/images/gallery/_bw Ors Personal Dragon.jpg",
-          fullsize:"/assets/images/gallery/bw Ors Personal Dragon Landscape.svg",
+          landscape:"/assets/images/gallery/bw Ors Personal Dragon Landscape.svg",
+          portrait:"/assets/images/gallery/bw Ors Personal Dragon Portrait.svg",
           alt:"Or's Personal Dragon"
         },
       ]
@@ -45,12 +51,14 @@ export class GalleryService {
       images:[
         {
           thumbnail:"/assets/images/gallery/_color Bears.jpg",
-          fullsize:"/assets/images/gallery/color Bears Landscape.png",
+          landscape:"/assets/images/gallery/color Bears Landscape.png",
+          portrait:"/assets/images/gallery/color Bears Portrait.jpg",
           alt:"Bears"
         },
         {
           thumbnail:"/assets/images/gallery/_color Rabbit.png",
-          fullsize:"/assets/images/gallery/color Rabbit Landscape.png",
+          landscape:"/assets/images/gallery/color Rabbit Landscape.png",
+          portrait:"/assets/images/gallery/color Rabbit Portrait.jpg",
           alt:"Rabbit"
         },
       ]
@@ -61,7 +69,8 @@ export class GalleryService {
       images:[
         {
           thumbnail:"/assets/images/gallery/_web Yaela Dror.png",
-          fullsize:"/assets/images/gallery/web Yaela Dror Landscape.png",
+          landscape:"/assets/images/gallery/web Yaela Dror Landscape.png",
+          portrait:"/assets/images/gallery/web Yaela Dror Portrait.png",
           alt:"Yaela Dror"
         },
       ]
@@ -72,32 +81,38 @@ export class GalleryService {
       images:[
         {
           thumbnail:"/assets/images/gallery/_walls SevenAngelsArcher.jpg",
-          fullsize:"/assets/images/gallery/walls SevenAngelsArcher Landscape.png",
+          landscape:"/assets/images/gallery/walls SevenAngelsArcher Landscape.png",
+          portrait:"/assets/images/gallery/walls SevenAngelsArcher Portrait.jpg",
           alt:"Archer"
         },
         {
           thumbnail:"/assets/images/gallery/_walls SevenAngelsBishop.jpg",
-          fullsize:"/assets/images/gallery/walls SevenAngelsBishop Landscape.png",
+          landscape:"/assets/images/gallery/walls SevenAngelsBishop Landscape.png",
+          portrait:"/assets/images/gallery/walls SevenAngelsBishop Portrait.jpg",
           alt:"Bishop"
         },
         {
           thumbnail:"/assets/images/gallery/_walls SevenAngelsKnight.jpg",
-          fullsize:"/assets/images/gallery/walls SevenAngelsKnight Landscape.png",
+          landscape:"/assets/images/gallery/walls SevenAngelsKnight Landscape.png",
+          portrait:"/assets/images/gallery/walls SevenAngelsKnight Portrait.jpg",
           alt:"Knight"
         },
         {
           thumbnail:"/assets/images/gallery/_walls SevenAngelsScribeAndHorseman.jpg",
-          fullsize:"/assets/images/gallery/walls SevenAngelsScribeAndHorseman Landscape.png",
+          landscape:"/assets/images/gallery/walls SevenAngelsScribeAndHorseman Landscape.png",
+          portrait:"/assets/images/gallery/walls SevenAngelsScribe Portrait.jpg",
           alt:"Scribe and Horseman"
         },
         {
           thumbnail:"/assets/images/gallery/_walls SevenAngelsWaterCarrier.jpg",
-          fullsize:"/assets/images/gallery/walls SevenAngelsWaterCarrier Landscape.png",
+          landscape:"/assets/images/gallery/walls SevenAngelsWaterCarrier Landscape.png",
+          portrait:"/assets/images/gallery/walls SevenAngelsWaterCarrier Portrait.jpg",
           alt:"Water Carrier"
         },
         {
           thumbnail:"/assets/images/gallery/_walls SevenAngelsVassal.jpg",
-          fullsize:"/assets/images/gallery/walls SevenAngelsVassal Landscape.png",
+          landscape:"/assets/images/gallery/walls SevenAngelsVassal Landscape.png",
+          portrait:"/assets/images/gallery/walls SevenAngelsVassal Portrait.jpg",
           alt:"Vassal"
         },
       ]
@@ -108,12 +123,14 @@ export class GalleryService {
       images:[
         {
           thumbnail:"/assets/images/gallery/_books Dog.jpg",
-          fullsize:"/assets/images/gallery/books Dog Landscape.png",
+          landscape:"/assets/images/gallery/books Dog Landscape.png",
+          portrait:"/assets/images/gallery/books Dog Portrait.jpg",
           alt:"The Dog's Intelligence"
         },
         {
           thumbnail:"/assets/images/gallery/_books Robin.jpg",
-          fullsize:"/assets/images/gallery/books Robin Landscape.jpg",
+          landscape:"/assets/images/gallery/books Robin Landscape.jpg",
+          portrait:"/assets/images/gallery/books Robin Portrait.jpg",
           alt:"Who Hurt Cock Robin?"
         },
       ]
@@ -134,4 +151,7 @@ export class GalleryService {
     return group.images;
   }
 
+  getImage(groupId:string, imageIndex:number):{} {
+    return this.getImages(groupId)[imageIndex];
+  }
 }

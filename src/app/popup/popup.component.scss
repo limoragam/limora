@@ -1,0 +1,32 @@
+@import "../commonStyles.scss";
+
+.popup {
+    margin: auto;
+    position: absolute; // position two pics one on top of each other
+    top: 0;
+    left: 0;    // left and right are set to 0 (and margin to auto) in order to center
+    right: 0;
+    padding: 0.5em;
+    background-color: $footer-background-color;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    text-align: center;
+    transition: opacity 400ms ease-in-out;
+    z-index: 20;
+}
+
+app-visual-x {
+    z-index: 24;
+}
+
+img {
+    width:90vw;
+}
+
+@media screen and (min-width: 710px) {
+    .popup {
+        width: 710px;
+        height: auto;
+        padding: 1em 0 0 0;
+    }
+}

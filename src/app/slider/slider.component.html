@@ -1,9 +1,26 @@
-<div class="slider-wrapper" (window:keyup)="onKeyup($event)">
-	<section id="slideshow">
+<div 
+	class="slider-wrapper" 
+	[ngStyle]="{width:layoutService.getOrientation()==='landscape' ? '700px' : '320px'}" 
+	(window:keyup)="onKeyup($event)"
+	>
+	<section id="slideshow" [ngStyle]="slideshowDimensions">
 		<!-- next and prev -->
-		<a class="navigation prev" href="gallery#" title="Previous" (click)="slidePrev()">&lt;</a>
-		<a class="navigation next" href="gallery#" title="Next" (click)="slideNext()">&gt;</a>
+		<a 
+			class="navigation prev" 
+			href="gallery#" 
+			title="Previous" 
+			(click)="slidePrev()" 
+			*ngIf="layoutService.getOrientation()==='landscape'"
+			>&lt;</a>
+		<a 
+			class="navigation next" 
+			href="gallery#" 
+			title="Next" 
+			(click)="slideNext()" 
+			*ngIf="layoutService.getOrientation()==='landscape'"
+			>&gt;</a>
 		
+		<!-- slider -->
 		<div class="container">
 			<div class="background_slider" [ngStyle]="background"></div>
 		</div>

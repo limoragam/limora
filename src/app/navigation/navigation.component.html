@@ -1,7 +1,6 @@
 <div class="item-wrapper" *ngFor="let navigationItem of navigationService.navigationItems">
     <div class="tooltip" *ngIf="show" [@fadeIn] (click)="onItemClicked(navigationItem.name)">
         <span class="tooltiptext">{{navigationItem.tooltipText}}</span>
-        <!-- <a [href]="navigationItem.href" [target]="navigationItem.target"> -->
         <a 
             *ngIf="navigationItem.href; else aRouterLink" 
             [href]="navigationItem.href" target="navigationItem.target"
@@ -26,9 +25,9 @@
                     [alt]="navigationItem.alt"
                     >
             </a>
-    </ng-template>
+        </ng-template>
+    </div>
 </div>
-</div>    
 
 <div>
     <app-hamburger 
