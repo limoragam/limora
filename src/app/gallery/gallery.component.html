@@ -20,7 +20,10 @@
   
 </div>
 
-<div class="popup" *ngIf="showPopup" [ngStyle]="{}" [@fadeIn] (window:keyup)="onKeyup($event)">
-  <app-visual-x (clicked)="closePopup()"></app-visual-x>
-  <app-slider [groupId]="currentGroup" [currentSlide]="currentSlide"></app-slider>
-</div>
+<app-popup 
+  [groupId]="currentGroup" 
+  [imageIndex]="currentSlide" 
+  [type]="popupType"
+  (closeMe)="closePopup()" 
+  *ngIf="showPopup"
+  ></app-popup>

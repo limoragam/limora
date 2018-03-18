@@ -42,21 +42,6 @@
     cursor: pointer;
 }
 
-.popup {
-    width: 710px;
-    margin:0 auto;
-    position: absolute; // position two pics one on top of each other
-    top: 3em;
-    left: 0;    // left and right are set to 0 (and margin to auto) in order to center
-    right: 0;
-    padding: 1em 0 0 0;
-    border: 1px solid #aaa;
-    border-radius: 5px;
-    background-color: $footer-background-color;
-    transition: opacity 400ms ease-in-out;
-    z-index: 20;
-}
-
 @media screen and (min-width: 600px) {
     .grid {
         display: flex;

@@ -23,6 +23,7 @@ import { GalleryService } from './gallery/gallery.service';
 
 import { MultiplyPipe } from './multiply.pipe';
 import { SliderComponent } from './slider/slider.component';
+import { PopupComponent } from './popup/popup.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { SliderComponent } from './slider/slider.component';
     GalleryComponent,
     TitleLimoragamComponent,
     SliderComponent,
+    PopupComponent,
   ],
   imports: [
     BrowserModule,
