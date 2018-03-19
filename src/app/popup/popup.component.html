@@ -7,6 +7,7 @@
     ></app-slider>
   <ng-template #singleImage>    
     <img 
+      class="image"
       [src]="galleryService.getImage(this.groupId, this.imageIndex)['portrait']" 
       [alt]="galleryService.getImage(this.groupId, this.imageIndex)['alt']">
   </ng-template>

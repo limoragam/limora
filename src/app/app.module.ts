@@ -19,6 +19,7 @@ import { TitleLimoragamComponent } from './title-limoragam/title-limoragam.compo
 
 import { LayoutService } from './layout/layout.service';
 import { NavigationService } from './navigation/navigation.service';
+import { HomeService } from './home/home.service';
 import { GalleryService } from './gallery/gallery.service';
 
 import { MultiplyPipe } from './multiply.pipe';
@@ -50,7 +51,8 @@ import { PopupComponent } from './popup/popup.component';
   providers: [
     LayoutService,
     NavigationService,
-    GalleryService
+    HomeService,
+    GalleryService,
   ],
   bootstrap: [AppComponent]
 })

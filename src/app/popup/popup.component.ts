@@ -29,15 +29,25 @@ export class PopupComponent {
 
   constructor(public galleryService:GalleryService) {}
 
-  ngOnInit() {
-    setTimeout(() => {
-      this.setVerticalPosition();
-    }, 10);
+  ngAfterViewInit() {
+    this.setVerticalPosition();
   }
 
   setVerticalPosition() {
-    let verticalMove = (window.innerHeight - $(".footer").height() - $(".popup").height())/2 + "px";
-    $(".popup").css('top', verticalMove);
+    if(this.type==='singleImage') {
+      let checkImage = setInterval(function() {
+        if ($('.image').height()) {
+          let verticalMove = (window.innerHeight - $(".footer").height() - $(".popup").height())/2 + "px";
+          if(verticalMove.indexOf('-') >= 0) {
+            verticalMove = "0";
+          }
+          $(".popup").css('top', verticalMove);
+          clearInterval(checkImage);
+        }
+      }, 100);
+    } else {
+      $(".popup").css('top', '3em');
+    }
   }
 
   onKeyup(event:KeyboardEvent) {

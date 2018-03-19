@@ -2,8 +2,8 @@ import { Component, AfterViewInit, ViewChild, ViewChildren, ElementRef, QueryLis
 import { trigger, transition, style, animate, state } from '@angular/animations';
 import { TweenLite, Cubic, TimelineLite } from 'gsap';
 import { VisualDragonComponent } from '../visuals/visual-dragon/visual-dragon.component';
-import { AboutComponent } from './../about/about.component';
 import { LayoutService } from '../layout/layout.service';
+import { HomeService } from './home.service';
 
 @Component({
   selector: 'app-home',
@@ -29,29 +29,19 @@ import { LayoutService } from '../layout/layout.service';
 })
 export class HomeComponent implements AfterViewInit {
   @ViewChild(VisualDragonComponent) visualDragonComponent:VisualDragonComponent;
-  @ViewChild(AboutComponent) aboutComponent:AboutComponent;
 
-  flowState = 'pending';  // pending, slide-in, stop
-  showIntroducing = true;
-  backgroundOpacity = 0.3;
   backgroundImage = this.layoutService.getOrientation()==='landscape' ? 
     "url('/assets/images/backgroundShop.svg')" : "url('/assets/images/backgroundShopPortrait.svg')";
 
-  constructor(public layoutService:LayoutService) { }
+  constructor(public layoutService:LayoutService, public homeService:HomeService) { }
 
   ngAfterViewInit() {
     window.addEventListener("orientationchange", ()=>{
       this.resetLayout();
     }, false);
 
-    this.aboutComponent.show = false;
-    let introducing = $('.introducing');
-    let timeline = new TimelineLite({ delay: 0.5, ease: Cubic.easeInOut });
-    timeline.to(introducing, 0.4, {opacity:1})
-      .to(introducing, 0.7, {opacity:0}, "+=2");
-    timeline.call(()=>{
-      this.animateImages();
-    })
+    this.resetLayout();
+    this.animate();
   }
 
   onResize(event:Event) {
@@ -69,33 +59,59 @@ export class HomeComponent implements AfterViewInit {
   }
 
   setImagesPosition() {
-    if(this.flowState==='stop') {
+    if(this.homeService.flowState==='stop') {
       let windowWidth =  window.innerWidth;
       let xPosition = (this.layoutService.getOrientation()==='landscape') ? windowWidth * -1 : windowWidth * -2;
       $(".booby").css('transform', 'translateX('+ xPosition +'px)');
+      $(".dragon").css('transform', 'translateX(0)');
+    }
+  }
+
+  animate() {
+    switch(this.homeService.flowState) {
+      case 'pending':
+        this.animateIntroducing();
+        break;
+      case 'slide-in':
+        this.animateImages();
+        break;
+      case 'stop':
+        this.visualDragonComponent.doAnimation();
+        break;
+    }
+  }
+
+  animateIntroducing() {
+    if(this.homeService.flowState==='pending') {
+      let introducing = $('.introducing');
+      let timeline = new TimelineLite({ delay: 0.5, ease: Cubic.easeInOut });
+      timeline.to(introducing, 0.4, {opacity:1})
+        .to(introducing, 0.7, {opacity:0}, "+=2");
+      timeline.call(()=>{
+        this.homeService.flowState = 'slide-in';
+        this.animateImages();
+      })
     }
   }
 
   animateImages() {
-    let duration = this.layoutService.getOrientation()==='landscape' ? 2 : 1.5;
-    let delay = this.layoutService.getOrientation()==='landscape' ? duration/2 : duration/2 - 0.5;
-    let slideoutDelay = "+=" + delay;
-    let wrapperWidth = $(".wrapper").width() * -1;
-    let images = $(".dynamic");
-    this.flowState = 'slide-in';
-    for (let i = 0; i < images.length; i++) {
-      let tl = new TimelineLite({ delay: i * duration, ease: Cubic.easeInOut });
-      tl.to(images[i], duration, { x: 0 });
-      if (i === images.length - 1) {
-        tl.call(()=>{
-          this.visualDragonComponent.doAnimation();
-          this.backgroundOpacity = 0.8;
-          if(this.flowState==='slide-in') {
-            this.flowState = 'stop';
-          }
-        });
-      } else {
-        tl.to(images[i], duration, { x: wrapperWidth }, slideoutDelay);
+    if(this.homeService.flowState==='slide-in') {
+      let duration = this.layoutService.getOrientation()==='landscape' ? 2 : 1.5;
+      let delay = this.layoutService.getOrientation()==='landscape' ? duration/2 : duration/2 - 0.5;
+      let slideoutDelay = "+=" + delay;
+      let wrapperWidth = $(".wrapper").width() * -1;
+      let images = $(".dynamic");
+      for (let i = 0; i < images.length; i++) {
+        let tl = new TimelineLite({ delay: i * duration, ease: Cubic.easeInOut });
+        tl.to(images[i], duration, { x: 0 }); // slide in
+        if (i === images.length - 1) {
+          tl.call(()=>{
+            this.homeService.flowState = 'stop';
+            this.visualDragonComponent.doAnimation();
+          });
+        } else {
+          tl.to(images[i], duration, { x: wrapperWidth }, slideoutDelay); // slide out
+        }
       }
     }
   }
