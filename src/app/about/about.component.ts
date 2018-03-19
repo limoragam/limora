@@ -25,7 +25,6 @@ import { LayoutService } from '../layout/layout.service';
   ]
 })
 export class AboutComponent {
-  @Input() show = false;
   showPhoto = false;
   
   constructor(public layoutService:LayoutService) {}

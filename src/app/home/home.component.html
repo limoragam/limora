@@ -5,9 +5,14 @@
   [@fadeIn]
   >
 
+  <!-- Background -->
   <!-- space between opening and closing tags is important, otherwise div doesn't have any area -->
-  <div class="fullwidth-wrapper static background" [ngStyle]="{'opacity':backgroundOpacity,'background-image':backgroundImage}"> </div>
+  <div 
+    class="fullwidth-wrapper static background" 
+    [ngStyle]="{'opacity':homeService.flowState==='stop' ? 0.8 : 0.3,'background-image':backgroundImage}"
+    > </div>
 
+  <!-- Introducing -->
   <div 
     class="fullwidth-wrapper static introducing" 
     [ngStyle]="{'font-size':layoutService.getOrientation()==='landscape' ? '3em':'2em'}"
@@ -17,7 +22,7 @@
     <br>Blue-Footed Booby
   </div>
 
-
+  <!-- Boobies -->
   <div class="fullwidth-wrapper dynamic booby" *ngFor="let svg of layoutService.svgs">
     <img 
       class="mainImage"
@@ -26,6 +31,7 @@
       >
   </div>
 
+  <!-- Dragon -->
   <div class="fullwidth-wrapper dynamic dragon">
     <app-visual-dragon></app-visual-dragon>
   </div>
