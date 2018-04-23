@@ -25,7 +25,7 @@ export class NavigationService {
     {
       name:"mail",
       tooltipText:"Write",
-      href:"mailto:limoragam@gmail.com",
+      href:"mailto:limor@limoragam.com",
       image:"/assets/images/ClickGmail.svg",
       alt:"Mail",
       target:"_self",
